@@ -1,4 +1,7 @@
 #include <iostream>
+#include <./docobject.h>
+#include <./wordobject.h>
+
 
 using namespace std;
 
