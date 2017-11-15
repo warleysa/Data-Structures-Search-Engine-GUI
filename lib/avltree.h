@@ -146,14 +146,25 @@ private:
     }
 
     void makeEmpty(AvlNode*& t) {
-        if( t != nullptr ) {
-            makeEmpty( t->left );
-            makeEmpty( t->right );
+        if(t != nullptr) {
+            makeEmpty(t->left);
+            makeEmpty(t->right);
             delete t;
         }
         t = nullptr;
     }
 
+    bool contains(const int &x, AvlTree *t) const {
+        while(t != nullptr)
+            if(x < t->element) {
+                t = t->left;
+            } else if(t->element < x) {
+                t = t->right;
+            } else {
+                return true;
+            }
+        return false;
+    }
 };
 
 #endif // AVLTREE_H
