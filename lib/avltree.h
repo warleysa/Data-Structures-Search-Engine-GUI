@@ -1,7 +1,6 @@
 #ifndef AVLTREE_H
 #define AVLTREE_H
 
-#include "dsexceptions.h"
 #include <iostream>
 using namespace std;
 
@@ -21,6 +20,7 @@ private:
     class AvlNode {
     public:
         int element;
+        T *data;
         AvlNode *left;
         AvlNode *right;
         int height;
@@ -29,18 +29,18 @@ private:
                 AvlNode *lt,
                 AvlNode *rt, int h = 0)
             : element (theElement), left(lt),
-              right(rt), height(h) { }
+              right(rt), height(h){ }
 
     };
 
     AvlNode *root;
 
 public:
-    AvlTree():root(NULL) {
+    AvlTree():root(nullptr) {
 
     }
 
-    AvlTree(const AvlTree & rhs):root(NULL) {
+    AvlTree(const AvlTree & rhs):root(nullptr) {
         *this = rhs;
     }
 
@@ -71,28 +71,58 @@ public:
     }
 
     void insert(const int &x, T& input) {
-        insert(x, root);
+        insert(x, input, root);
+    }
+
+    bool isEmpty( ) const {
+        return root == nullptr;
     }
 
     T& returnNodeAt(int input) {
-        return returnNodeAt(x, root);
+        return returnNodeAt(input, root);
     }
 
 private:
-    T& returnNodeAt(int input, node *leaf) {
+    T& returnNodeAt(int input, AvlTree *leaf) {
         if(input < leaf->element) {
-            if(leaf->left != NULL)
-                return returnNodeAt(key, leaf->left);
+            if(leaf->left != nullptr)
+                return returnNodeAt(input, leaf->left);
         } else if(input >= leaf->element) {
-            if(leaf->right != NULL)
+            if(leaf->right != nullptr)
                 return returnNodeAt(input, leaf->right);
         } else if(input == leaf->element) {
             return leaf->data;
         }
     }
 
+    void insert(const int & x, T& input, AvlNode *& t) {
+        if( t == nullptr )
+            t = new AvlNode(x, nullptr, nullptr, input);
+        else if( x < t->element )
+        {
+            insert( x, t->left );
+            if( height( t->left ) - height( t->right ) == 2 )
+                if( x < t->left->element )
+                    rotateWithLeftChild(t);
+                else
+                    doubleWithLeftChild(t);
+        }
+        else if( t->element < x )
+        {
+            insert( x, t->right );
+            if( height( t->right ) - height( t->left ) == 2 )
+                if( t->right->element < x )
+                    rotateWithRightChild(t);
+                else
+                    doubleWithRightChild(t);
+        }
+        else;  // Duplicate; do nothing
+
+        t->height = max( height(t->left), height( t->right ) ) + 1;
+    }
+
     int height(AvlNode *t) const {
-        return t == NULL ? -1 : t->height;
+        return t == nullptr ? -1 : t->height;
     }
 
     int max(int lhs, int rhs) const {
@@ -103,7 +133,7 @@ private:
 
     }
 
-    void rotateWithLeftChild(AvlNode *& i2) {
+    void rotateWithRightChild(AvlNode *& i2) {
 
     }
 
@@ -113,6 +143,15 @@ private:
 
     void doubleWithRightChild(AvlNode *& i4) {
 
+    }
+
+    void makeEmpty(AvlNode*& t) {
+        if( t != nullptr ) {
+            makeEmpty( t->left );
+            makeEmpty( t->right );
+            delete t;
+        }
+        t = nullptr;
     }
 
 };

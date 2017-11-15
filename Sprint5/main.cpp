@@ -1,6 +1,7 @@
 #include <iostream>
 #include <./docobject.h>
 #include <./wordobject.h>
+#include <../lib/avltree.h>
 
 
 using namespace std;

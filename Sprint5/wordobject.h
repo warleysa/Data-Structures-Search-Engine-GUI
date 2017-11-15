@@ -16,7 +16,16 @@ public:
     }
 
     wordObject(int id, std::string input) {
+        idList.push_back(id);
+        word = input;
+    }
 
+    void addID(int input) {
+        idList.push_back(input);
+    }
+
+    int getID(int position) {
+        return idList.at(position);
     }
 };
 
