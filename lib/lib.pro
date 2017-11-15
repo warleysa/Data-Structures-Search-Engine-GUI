@@ -7,3 +7,6 @@ SOURCES +=
 
 HEADERS += \
     avltree.h
+
+DISTFILES += \
+    test
