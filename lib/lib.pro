@@ -6,7 +6,6 @@ CONFIG -= qt
 SOURCES +=
 
 HEADERS += \
-    avltree.h
+    avltree.hpp
 
-DISTFILES += \
-    test
+DISTFILES +=

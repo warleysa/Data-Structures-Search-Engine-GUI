@@ -1,0 +1,38 @@
+The parser has all of the implementation of the indexer in the struct
+
+A combination of the struct in the parser and the indexer.cpp/h will provide for a good "index" class/object.
+
+I just didn't want to attempt to combine the 2 files and essentially render the csv parser useless.
+
+<<<<ALSO...Note that the AvlTree is in the LIB folder!>>>>
+
+Also, to make the userInterface with the GUI run smoothly...
+    - It would be better if one object was created in Indexer that will have the functions
+        - readInAllFolderData (would essentially call the parser and make the data structure)
+            ***[- reads in all data from the folder linked by ./data/*.csv]***
+        - getTop50Words (Already implemented with vector) Completed
+        - readNewFileTag(string)... This will have the document name entered by the user for the tag
+        - readNewFileQues(string)... This will have the document name entered by the user for the question file
+            - These just will be used in maintenence mode
+            - Future implemetation for after check in #2
+        - Also, for the parser.
+            - Gonna need a bool that accepts a char string that checks if the document name entered
+              by the user is valid
+
+Also, for Michael.
+    - This may just be how I am running it. So I have not included this in my main
+    - But your array subscripts just do not compile
+        %%%% error: invalid types ‘int[int]’ for array subscript.
+        return rows[index].ownerId;
+        %%%%
+    - Also, Did you actually compile this?
+        - Most of the variables you call are out of scope so it wouldnt let you compile it in general...
+    - So, as you can tell they are not technically inside the project at the moment but once those problems
+      are fixed then it can be added back pretty easily
+
+Also, for Nick.
+    - I have made comments in some of the classes for small things I have chenged.
+    - It shouldn't cause problems but just review them and either say yay or nay
+    - Most are unsigned int to signed in and some are return statements that are needed
+    - It looks as if your indexer methodology is a little better but it would be best if it is
+      using the csv parser that Michael is using
