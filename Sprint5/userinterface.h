@@ -11,11 +11,7 @@ private:
     char ignoreChar;
 public:
     userInterface () {
-        //int testi = 1000;
-        //double testd = 100;
-        //float testf = 1000;
-        //long double testld = 10000;
-        /* DocumentParser
+        /** DocumentParser
          * WITH
          * readInAllFiles();
          * getTop50Words();
@@ -115,9 +111,17 @@ public:
         }
     }
 
-    void addUserFiles();
+    void addUserFiles() {
+        //ask user for file name
+        //check if file is valid
+        //pass the char to the addFile in parser
+    }
 
-    void clearData();
+    void clearData() {
+        //checks if data is present in the avl or hash table
+        //if so, clears it
+        //Otherwise it returns to Maintenence Mode and prompts user to add a file
+    }
 
     void search() {
         cout << "Please enter the word or phrase you would like search: " << endl;
