@@ -3,6 +3,7 @@ CONFIG += console c++11
 CONFIG -= app_bundle
 CONFIG -= qt
 
+
 SOURCES += main.cpp
 
 HEADERS += \
@@ -10,8 +11,7 @@ HEADERS += \
     HashTable.h \
     docobject.h \
     wordobject.h \
-    userinterface.h
+    userinterface_nonGUI.h
 
 DISTFILES += \
-    notesParseIndex \
-    test
+    notesParseIndex
