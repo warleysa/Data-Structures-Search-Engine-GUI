@@ -13,4 +13,5 @@ HEADERS += \
     userinterface.h
 
 DISTFILES += \
-    notesParseIndex
+    notesParseIndex \
+    test
