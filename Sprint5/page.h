@@ -5,13 +5,13 @@
 class Page
 {
 public:
-    float Id = -1;
+    int Id = -1;
     float ownerId = -1;
     float score = -1;
     std::string title;
     std::string body;
     std::string code;
-    Page(float, std::string, std::string, std::string);
+    Page(int, std::string, std::string, std::string);
     Page();
 };
 

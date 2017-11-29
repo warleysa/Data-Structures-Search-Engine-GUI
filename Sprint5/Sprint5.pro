@@ -1,8 +1,11 @@
+QT       += core gui
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TEMPLATE = app
 TEMPLATE += app
 CONFIG += console c++11
 CONFIG -= app_bundle
 CONFIG += qt
+DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += \
@@ -12,7 +15,8 @@ SOURCES += \
     tag.cpp \
     page.cpp \
     main.cpp \
-    parser.cpp
+    parser.cpp \
+    mainwindow.cpp
 
 HEADERS += \
     HashTable.h \
@@ -25,7 +29,11 @@ HEADERS += \
     tag.h \
     Entry.h \
     page.h \
-    parser.h
+    parser.h \
+    mainwindow.h
 
 DISTFILES += \
     notesParseIndex
+
+FORMS += \
+    mainwindow.ui

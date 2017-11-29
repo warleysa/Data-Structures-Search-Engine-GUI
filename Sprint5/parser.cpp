@@ -18,14 +18,8 @@ using std::endl;
 
 Parser::Parser(){}
 
-Parser::Parser(char* file, char* tagFile){
-    currentFile = file;
-    currentTagFile = tagFile;
-
-}
-
-void Parser::readTagFile(){
-    io::CSVReader<2> in(currentTagFile);
+void Parser::readTagFile(char* file){
+    io::CSVReader<2> in(file);
     in.read_header(io::ignore_extra_column, "Id", "Tag" );
     float i = 0;
     string p = " ";
@@ -35,8 +29,8 @@ void Parser::readTagFile(){
     }
 }
 
-int Parser::readFile() {
-    std::ifstream in(currentFile);
+int Parser::readFile(char* file) {
+    std::ifstream in(file);
         if (in.fail()) return (cout << "File not found" << endl) && 0;
         while(in.good())
         {
@@ -50,35 +44,26 @@ int Parser::readFile() {
                 if (i == 1) {
                     tempID = row[i];
                     endID = std::strtod(tempID.c_str(), 0);
+                    idLocations.push_back(endID);
                     cout << "[" << endID << "]" << "\t";
                 } else if (i == 5) {
                     tempTitle = row[i];
                     cout << "[" << tempTitle << "]" << "\t";
                 } else if (i == 6) {
                     tempBody = row[i];
-                    cout << "[" << tempBody << "]" << "\t";
+                    //cout << "[" << tempBody << "]" << "\t";
                 } else if (i == 7) {
                     tempCode = row[i];
-                    cout << "[" << tempCode << "]" << "\t";
+                    //cout << "[" << tempCode << "]" << "\t";
                 }
-                Page tempPage{endID, tempTitle, tempBody, tempCode};
             }
+            Page tempPage{endID, tempTitle, tempBody, tempCode};
+            rows.push_back(tempPage);
             cout << endl;
         }
         in.close();
+        cout << "END OF FILE" << endl;
 
-        std::string line;
-        in.open(currentFile);
-
-        while(getline(in, line)  && in.good())
-        {
-            std::vector<std::string> row = csv_read_row(line, ',');
-            for(int i=0, leng=row.size(); i < leng; i++)
-                cout << "[" << row[i] << "]" << "\t";
-            cout << endl;
-        }
-
-        in.close();
         return 0;
 }
 
@@ -129,22 +114,6 @@ std::vector<std::string> Parser::csv_read_row(std::istream &in, char delimiter)
     }
 }
 
-void Parser::setFile(char* p){
-    currentFile = p;
-}
-
-void Parser::setTagFile(char* p){
-    currentTagFile = p;
-}
-
-char& Parser::getFile(){
-    return *currentFile;
-}
-
-char& Parser::getTagFile(){
-    return *currentTagFile;
-}
-
 int Parser::readId(int index){
     return rows[index].Id;
 }
@@ -158,6 +127,7 @@ int Parser::readTagId(int index){
 }
 
 string Parser::readTitle(int index){
+    cout << rows[index].title << endl;
     return rows[index].title;
 }
 
@@ -171,5 +141,23 @@ string Parser::readCode(int index){
 
 string Parser::readTag(int index){
     return tags[index].phrase;
+}
+
+int Parser::TotalQuestions() {
+    return idLocations.size();
+}
+
+int Parser::findFile(int ID) {
+    int pos = -1;
+    for(int i = 0; i <= idLocations.size(); i++) {
+        cout << idLocations[i] << endl;
+        if(ID == idLocations[i]) {
+            pos = i;
+            break;
+        }
+    }
+    cout << "SIZE: " << idLocations.size() << "Index: " << pos << endl;
+    cout << "PAGE SIZE: " << rows.size() << endl;
+    return pos;
 }
 
