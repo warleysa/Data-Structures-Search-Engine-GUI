@@ -1,8 +1,8 @@
 #pragma once
-#include "Entry.h"
+#include <../Sprint5/Entry.h>
 #include <vector>
 #include <string>
-#include "IndexInterface.h"
+#include <../Sprint5/IndexInterface.h>
 
 const long TABLESIZE = 200000;
 

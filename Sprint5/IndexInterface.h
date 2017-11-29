@@ -1,5 +1,5 @@
 #pragma once
-#include "Entry.h"
+#include <../Sprint5/Entry.h>
 #include <string>
 
 class IndexInterface {

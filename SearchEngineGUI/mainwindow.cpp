@@ -6,6 +6,7 @@
 #include <QTimer>
 #include <QtCore>
 #include <ctime>
+#include <string>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -18,6 +19,11 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->label_time->setHidden(true);
     ui->label_starting->setHidden(true);
     ui->tab_1->activateWindow();
+    ui->lineEdit->setEnabled(false);
+    ui->lineEdit_2->setEnabled(false);
+    ui->pushButton_2->setEnabled(false);
+    ui->pushButton->setEnabled(false);
+    ui->pushButton_4->setEnabled(false);
 }
 
 MainWindow::~MainWindow()
@@ -36,10 +42,15 @@ void MainWindow::on_startButton_clicked()  //Start Button
     int stop_s=clock();
     QString time = QString::number((stop_s-start_s)/double(CLOCKS_PER_SEC)*1000);
     on_label_time_linkActivated(time);
-
+    ui->lineEdit->setEnabled(true);
+    ui->lineEdit_2->setEnabled(true);
+    ui->pushButton_2->setEnabled(true);
+    ui->pushButton->setEnabled(true);
+    ui->pushButton_4->setEnabled(true);
     ui->label_starting->setHidden(true);
     ui->label_start->setHidden(false);
     ui->startButton->setDisabled(true);
+
 }
 
 void MainWindow::on_pushButton_3_clicked() {}
@@ -110,4 +121,14 @@ void MainWindow::on_checkBox_clicked()
 void MainWindow::on_checkBox_2_clicked()
 {
     ui->checkBox->setChecked(false);
+}
+
+void MainWindow::on_pushButton_clicked()
+{
+    //search and return document info as string
+    std::string test = "Document info here";
+    QString qstr = QString::fromStdString(test);
+    QString qstr2 = "Testing Doc 2";
+    ui->textBrowser->setText(qstr);
+    ui->textBrowser->setText(qstr2);
 }

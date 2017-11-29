@@ -1,7 +1,7 @@
-#include "Entry.h"
+#include <../Sprint5/Entry.h>
 #include <string>
 #include <vector>
-#include "math.h"
+#include <math.h>
 
 using namespace std; //same word on tons of pages (elephant)
 

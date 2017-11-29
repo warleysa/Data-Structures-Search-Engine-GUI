@@ -1,6 +1,6 @@
-#include "HashTable.h"
-#include "IndexInterface.h"
-#include "Entry.h"
+#include <../Sprint5/HashTable.h>
+#include <../Sprint5/IndexInterface.h>
+#include <../Sprint5/Entry.h>
 #include <vector>
 #include <string>
 

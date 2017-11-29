@@ -1,8 +1,11 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include <../Sprint5/parser.h>
+
 #include <QMainWindow>
 #include <QFileDialog>
+#include <QCoreApplication>
 
 namespace Ui {
 class MainWindow;
@@ -40,6 +43,8 @@ private slots:
     void on_checkBox_clicked();
 
     void on_checkBox_2_clicked();
+
+    void on_pushButton_clicked();
 
 private:
     Ui::MainWindow *ui;

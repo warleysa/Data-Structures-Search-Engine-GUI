@@ -1,3 +1,6 @@
+#ifndef ENTRY_H
+#define ENTRY_H
+
 #pragma once
 #include <vector>
 #include <string>
@@ -21,3 +24,5 @@ public:
     void addDocNum(long x);
     void output(ostream& oput);
 };
+
+#endif
