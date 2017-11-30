@@ -48,7 +48,7 @@ int Parser::readFile(char* file) {
                     cout << "[" << endID << "]" << "\t";
                 } else if (i == 5) {
                     tempTitle = row[i];
-                    cout << "[" << tempTitle << "]" << "\t";
+                    //cout << "[" << tempTitle << "]" << "\t";
                 } else if (i == 6) {
                     tempBody = row[i];
                     //cout << "[" << tempBody << "]" << "\t";

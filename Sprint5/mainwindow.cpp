@@ -61,6 +61,20 @@ void MainWindow::on_startButton_released()  //Start Button
 
 void MainWindow::start() {
     int start_s=clock();
+    p.readFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/data/Q08.csv");
+    p.readTagFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/data/T08.csv");
+    p.readFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/data/Q09.csv");
+    p.readTagFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/data/T09.csv");
+    p.readFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/data/Q10.csv");
+    p.readTagFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/data/T10.csv");
+    p.readFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/data/Q11.csv");
+    p.readTagFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/data/T11.csv");
+    p.readFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/data/Q12.csv");
+    p.readTagFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/data/T12.csv");
+    p.readFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/data/Q13.csv");
+    p.readTagFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/data/T13.csv");
+    p.readFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/data/Q14.csv");
+    p.readTagFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/data/T14.csv");
     p.readFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/data/Q15.csv");
     p.readTagFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/data/T15.csv");
     p.readFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/data/Q16.csv");
