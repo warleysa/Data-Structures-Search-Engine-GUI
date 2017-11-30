@@ -26,6 +26,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->pushButton_2->setEnabled(false);
     ui->pushButton->setEnabled(false);
     ui->pushButton_4->setEnabled(false);
+    ui->pushButton_6->setEnabled(false);
+    ui->pushButton_7->setEnabled(false);
 }
 
 MainWindow::~MainWindow()
@@ -52,6 +54,8 @@ void MainWindow::on_startButton_released()  //Start Button
     ui->label_starting->setHidden(true);
     ui->label_start->setHidden(false);
     ui->startButton->setDisabled(true);
+    ui->pushButton_6->setEnabled(true);
+    ui->pushButton_7->setEnabled(true);
 
 }
 
@@ -143,6 +147,7 @@ void MainWindow::on_pushButton_clicked()
     int index = qstr.toInt();
     int rIndex = 0;
     rIndex = p.findFile(index);
+    docUpdater(rIndex);
     QString info = QString::fromStdString(std::to_string(p.readId(rIndex)));
     info.append("\n Title: \n");
     info.append(QString::fromStdString(p.readTitle(rIndex)));
@@ -163,4 +168,20 @@ void MainWindow::on_startButton_clicked()
 
 void MainWindow::on_startButton_clicked(bool checked)
 {
+}
+
+void MainWindow::docUpdater(int docL) {
+    QString info = QString::fromStdString(std::to_string(p.readId(docL)));
+    ui->lineEdit_2->setText(info);
+    currDoc = docL;
+}
+
+void MainWindow::on_pushButton_6_clicked()
+{
+    docUpdater(currDoc+1);
+}
+
+void MainWindow::on_pushButton_7_clicked()
+{
+    docUpdater(currDoc-1);
 }

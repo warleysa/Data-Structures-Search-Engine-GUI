@@ -472,6 +472,32 @@ color: rgb(0, 0, 0);</string>
        <string/>
       </property>
      </widget>
+     <widget class="QPushButton" name="pushButton_6">
+      <property name="geometry">
+       <rect>
+        <x>620</x>
+        <y>100</y>
+        <width>131</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Next Document</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_7">
+      <property name="geometry">
+       <rect>
+        <x>770</x>
+        <y>100</y>
+        <width>151</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Previous Document</string>
+      </property>
+     </widget>
     </widget>
    </widget>
   </widget>

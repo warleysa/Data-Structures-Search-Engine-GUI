@@ -52,10 +52,17 @@ private slots:
 
     void on_startButton_clicked(bool checked);
 
+    void docUpdater(int doc);
+
+    void on_pushButton_6_clicked();
+
+    void on_pushButton_7_clicked();
+
 private:
     Ui::MainWindow *ui;
     QTimer *timer;
     Parser p;
+    int currDoc;
 };
 
 #endif // MAINWINDOW_H
