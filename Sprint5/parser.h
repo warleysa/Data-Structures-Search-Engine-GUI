@@ -31,6 +31,7 @@ private:
     std::vector<std::string> csv_read_row(std::istream &in, char delimiter);
     std::vector<std::string> csv_read_row(std::string &in, char delimiter);
     std::vector<int> idLocations;
+    void parseBodyWords(string, int);
 
 public:
 
@@ -47,6 +48,8 @@ public:
     string readTag(int);  //""
     int TotalQuestions();
     int findFile(int);
+    vector<string> vStrings;
+    void printWords();
 };
 
 #endif // PARSER_H

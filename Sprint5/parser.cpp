@@ -9,12 +9,13 @@
 #include <fstream>
 #include <string>
 #include <vector>
+#include <algorithm>
 #include <sstream>
 #include <istream>
 
-
 using std::cout;
 using std::endl;
+using std::vector;
 
 Parser::Parser(){}
 
@@ -52,6 +53,7 @@ int Parser::readFile(char* file) {
                 } else if (i == 6) {
                     tempBody = row[i];
                     //cout << "[" << tempBody << "]" << "\t";
+                    parseBodyWords(tempBody, endID);
                 } else if (i == 7) {
                     tempCode = row[i];
                     //cout << "[" << tempCode << "]" << "\t";
@@ -159,5 +161,41 @@ int Parser::findFile(int ID) {
     cout << "SIZE: " << idLocations.size() << "Index: " << pos << endl;
     cout << "PAGE SIZE: " << rows.size() << endl;
     return pos;
+}
+
+void Parser::parseBodyWords(string input, int idNumber) {
+    istringstream iss(input);
+    while (iss) {
+        string word;
+        iss >> word;
+        word.erase(std::remove(word.begin(), word.end(), '.'), word.end());
+        word.erase(std::remove(word.begin(), word.end(), ':'), word.end());
+        word.erase(std::remove(word.begin(), word.end(), ';'), word.end());
+        word.erase(std::remove(word.begin(), word.end(), ','), word.end());
+        word.erase(std::remove(word.begin(), word.end(), '?'), word.end());
+        word.erase(std::remove(word.begin(), word.end(), '/'), word.end());
+        word.erase(std::remove(word.begin(), word.end(), '\\'), word.end());
+        word.erase(std::remove(word.begin(), word.end(), ')'), word.end());
+        word.erase(std::remove(word.begin(), word.end(), '('), word.end());
+        word.erase(std::remove(word.begin(), word.end(), '!'), word.end());
+        word.erase(std::remove(word.begin(), word.end(), '='), word.end());
+        word.erase(std::remove(word.begin(), word.end(), '"'), word.end());
+        transform(word.begin(), word.end(), word.begin(), ::tolower);
+        if(vStrings.size() == 0) {
+            vStrings.push_back(word);
+        }
+        if(std::find(vStrings.begin(), vStrings.end(), word) == vStrings.end()) {
+            vStrings.push_back(word);
+            cout << vStrings[vStrings.size()-1] << " -- ";
+        }
+    }
+    cout << "SIZE^^^^^^: " << vStrings.size() << endl;
+}
+
+void Parser::printWords() {
+    cout << "123456789" << endl;
+    //for (int i = 0; i < vStrings.size(); i++) {
+        //cout << vStrings[i] << endl;
+    //}
 }
 
