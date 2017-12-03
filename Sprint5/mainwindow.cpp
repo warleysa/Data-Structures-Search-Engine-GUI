@@ -63,7 +63,7 @@ void MainWindow::start() {
     int start_s=clock();
     p.readFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/data/Q08.csv");
     p.readTagFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/data/T08.csv");
-    ///*
+    /*
     p.readFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/data/Q09.csv");
     p.readTagFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/data/T09.csv");
     p.readFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/data/Q10.csv");
@@ -80,7 +80,7 @@ void MainWindow::start() {
     p.readTagFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/data/T15.csv");
     p.readFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/data/Q16.csv");
     p.readTagFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/data/T16.csv");
-    //*/
+    */
     int stop_s=clock();
     QString time = QString::number((stop_s-start_s)/double(CLOCKS_PER_SEC));
     on_label_time_linkActivated(time);
