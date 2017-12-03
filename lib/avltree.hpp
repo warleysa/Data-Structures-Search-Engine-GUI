@@ -10,13 +10,6 @@ using namespace std;
  * It can be found at http://users.cs.fiu.edu/~weiss/
  */
 
-/*
- * ADD contains(int, avlnode)
- * ADD findMin(avlnode)
- * ADD findMax(avlnode)
- * ADD makeEmpty(avlnode)
- * ADD insert(int, avlnode)
- */
 
 template <class T>
 
