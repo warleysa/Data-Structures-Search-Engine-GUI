@@ -12,6 +12,7 @@
 #include <algorithm>
 #include <sstream>
 #include <istream>
+#include <thread>
 
 using std::cout;
 using std::endl;
@@ -46,7 +47,7 @@ int Parser::readFile(char* file) {
                     tempID = row[i];
                     endID = std::strtod(tempID.c_str(), 0);
                     idLocations.push_back(endID);
-                    cout << "[" << endID << "]" << "\t";
+                    //cout << "[" << endID << "]" << "\t";
                 } else if (i == 5) {
                     tempTitle = row[i];
                     //cout << "[" << tempTitle << "]" << "\t";
@@ -61,10 +62,9 @@ int Parser::readFile(char* file) {
             }
             Page tempPage{endID, tempTitle, tempBody, tempCode};
             rows.push_back(tempPage);
-            cout << endl;
         }
         in.close();
-        cout << "END OF FILE" << endl;
+        cout << "END OF FILE : " << file << endl;
         return 0;
 }
 
@@ -162,8 +162,8 @@ int Parser::findFile(int ID) {
     return pos;
 }
 
-void Parser::parseBodyWords(string input, int idNumber) {
-    istringstream iss(input);
+void Parser::parseBodyWords(std::string &input, int &idNumber) {
+    std::istringstream iss(input);
     while (iss) {
         string word;
         iss >> word;
@@ -179,22 +179,14 @@ void Parser::parseBodyWords(string input, int idNumber) {
         word.erase(std::remove(word.begin(), word.end(), '!'), word.end());
         word.erase(std::remove(word.begin(), word.end(), '='), word.end());
         word.erase(std::remove(word.begin(), word.end(), '"'), word.end());
+
         transform(word.begin(), word.end(), word.begin(), ::tolower);
-        if(vStrings.size() == 0) {
-            vStrings.push_back(word);
-        }
-        if(std::find(vStrings.begin(), vStrings.end(), word) == vStrings.end()) {
-            vStrings.push_back(word);
-            cout << vStrings[vStrings.size()-1] << " -- ";
-        }
+        vStrings->readNewWord(idNumber, word);
     }
-    cout << "SIZE^^^^^^: " << vStrings.size() << endl;
 }
 
-void Parser::printWords() {
-    cout << "123456789" << endl;
-    //for (int i = 0; i < vStrings.size(); i++) {
-        //cout << vStrings[i] << endl;
-    //}
+void Parser::clear() {
+    vStrings->index->clear();
 }
+
 

@@ -6,6 +6,7 @@ CONFIG += console c++11
 CONFIG -= app_bundle
 CONFIG += qt
 DEFINES += QT_DEPRECATED_WARNINGS
+-Wl,--large-address-aware
 
 
 SOURCES += \
@@ -16,9 +17,7 @@ SOURCES += \
     tag.cpp \
     query.cpp \
     qword.cpp \
-    Results.cpp \
     Indexer.cpp \
-    Entry.cpp \
     porter2_stemmer.cpp
 
 HEADERS += \
@@ -31,11 +30,10 @@ HEADERS += \
     mainwindow.h \
     query.h \
     qword.h \
-    Results.h \
     Indexer.h \
     HashTable.h \
-    Entry.h \
-    porter2_stemmer.h
+    porter2_stemmer.h \
+    word.h
 
 DISTFILES += \
     notesParseIndex

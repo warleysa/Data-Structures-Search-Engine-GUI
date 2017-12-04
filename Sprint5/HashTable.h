@@ -1,27 +1,67 @@
 #pragma once
-#include "Entry.h"
 #include <vector>
+#include <array>
 #include <string>
-#include "IndexInterface.h"
+#include <iostream>
+<<<<<<< HEAD
+
+
+
+const long TABLESIZE = 500000;
+=======
+
 
 
 const long TABLESIZE = 200000;
+>>>>>>> 5b38a75... Fixed hash table for templating and making the array/vector
+
 template<class T>
-class HashTable: public IndexInterface<T> { //inherets IndexInterface stuff
+class HashTable { //inherets IndexInterface stuff
 private:
-    vector <T> table [TABLESIZE]; //vectors allow chaining, positions 0 - 199999 where things can be hashed to, if collision, bumped down chain
-    long HashValue(string); //takes tag, runs it through formula to turn into number so it can be placed in table
+    std::array<std::vector<T>, TABLESIZE> table; //vectors allow chaining, positions 0 - 199999 where things can be hashed to, if collision, bumped down chain
+    int HashValue(std::string); //takes tag, runs it through formula to turn into number so it can be placed in table
+<<<<<<< HEAD
+    int totalAdded;
 public:
     HashTable();
-    void add(T, string);
-    T* find(string);
+    int totalEntries();
+    void add(T&, std::string);
+    T* find(std::string);
+    void clear();
 };
 
 template<class T>
-HashTable<T>::HashTable() {}
+void HashTable<T>::clear() {
+    table.empty();
+}
 
 template<class T>
-long HashTable<T>::HashValue(string s) { //takes tag, runs it through formula to turn into number so it can be placed in table
+HashTable<T>::HashTable() {
+    std::fill(table.begin(), table.end(), std::vector<T>());
+    totalAdded = 0;
+}
+
+template<class T>
+int HashTable<T>::totalEntries() {
+    return totalAdded;
+}
+
+template<class T>
+=======
+public:
+    HashTable();
+    void add(T, std::string);
+    T* find(std::string);
+};
+
+template<class T>
+HashTable<T>::HashTable() {
+    std::fill(table.begin(), table.end(), std::vector<T>());
+}
+
+template<class T>
+>>>>>>> 5b38a75... Fixed hash table for templating and making the array/vector
+int HashTable<T>::HashValue(std::string s) { //takes tag, runs it through formula to turn into number so it can be placed in table
     //DJB2 hash function
     unsigned long H = 5381; //unsigned saves memory
     int c;
@@ -35,19 +75,48 @@ long HashTable<T>::HashValue(string s) { //takes tag, runs it through formula to
 }
 
 template<class T>
-void HashTable<T>::add(T e, string tag) {
-    long l = HashValue(tag); //converts tag to position num according to formula
+<<<<<<< HEAD
+void HashTable<T>::add(T& e, std::string tag) {
+    int l = HashValue(tag); //converts tag to position num according to formula
+    //std::cout << "TABLE ELEMENT ACCESSED: " << l << std::endl;
+    //std::cout << "vector ADD: " << table[l]. << std::endl;
     table[l].push_back(e); //adds it into the table
+    totalAdded = totalAdded+1;
+=======
+void HashTable<T>::add(T e, std::string tag) {
+    int l = HashValue(tag); //converts tag to position num according to formula
+    std::cout << "TABLE ELEMENT ACCESSED: " << l << std::endl;
+    //std::cout << "vector ADD: " << table[l]. << std::endl;
+    table[l].push_back(e); //adds it into the table
+
+>>>>>>> 5b38a75... Fixed hash table for templating and making the array/vector
 }
 
 template<class T>
-T* HashTable<T>::find(string s) {
-    T* e = nullptr;
-    long l = HashValue(s); //if tag in table, in position l. problem is that sometimes more than 1 tag at same spot (collision) which I handle with chaining
+T* HashTable<T>::find(std::string s) {
+<<<<<<< HEAD
+    //std::cout << "entering nullptr1" << std::endl;
+
+    int l = HashValue(s); //if tag in table, in position l. problem is that sometimes more than 1 tag at same spot (collision) which I handle with chaining
+    //std::cout << "TABLE ELEMENT ACCESSED: " << l << std::endl;
     for (int i{}; i < table[l].size(); i++) {
-        if (table[l][i].getTag() == s) {
+        if (table[l][i].wordValue == s) {
+            //std::cout << "FOUND WORD: " << s << std::endl;
+           // std::cout << "TABLE WORD ACCESSED: " << table[l][i].wordValue << std::endl;
             return &table[l][i];
         }
     }
-    return nullptr; //never found the entry
+    //std::cout << "RETURNING NULLPTR: " << std::endl;
+    return nullptr;
+=======
+    std::cout << "entering nullptr1" << std::endl;
+    std::cout << "entering nullptr25326" << std::endl;
+
+    long l = HashValue(s); //if tag in table, in position l. problem is that sometimes more than 1 tag at same spot (collision) which I handle with chaining
+    for (int i{}; i < table[l].size()-1; i++) {
+        if (table[l][i].wordValue == s) {
+            return &table[l][i];
+        }
+    }
+>>>>>>> 5b38a75... Fixed hash table for templating and making the array/vector
 }

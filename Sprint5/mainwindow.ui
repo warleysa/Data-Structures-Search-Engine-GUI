@@ -30,19 +30,6 @@
      <attribute name="title">
       <string>User Mode</string>
      </attribute>
-     <widget class="QPushButton" name="pushButton_2">
-      <property name="geometry">
-       <rect>
-        <x>130</x>
-        <y>60</y>
-        <width>151</width>
-        <height>25</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Display Top 50 Words</string>
-      </property>
-     </widget>
      <widget class="QLineEdit" name="lineEdit">
       <property name="geometry">
        <rect>
@@ -201,29 +188,123 @@ color: rgb(0, 0, 0);</string>
       </property>
      </widget>
     </widget>
-    <widget class="QWidget" name="tab_3">
+    <widget class="QWidget" name="tab_4">
      <attribute name="title">
-      <string>Top 50 Words</string>
+      <string>Search Results</string>
      </attribute>
-     <widget class="QLabel" name="label_2">
+     <widget class="QTextBrowser" name="textBrowser_2">
       <property name="geometry">
        <rect>
-        <x>20</x>
+        <x>60</x>
         <y>30</y>
-        <width>211</width>
-        <height>17</height>
+        <width>781</width>
+        <height>121</height>
        </rect>
       </property>
-      <property name="font">
-       <font>
-        <pointsize>12</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-        <underline>true</underline>
-       </font>
+     </widget>
+     <widget class="QPushButton" name="pushButton_8">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>30</y>
+        <width>31</width>
+        <height>31</height>
+       </rect>
       </property>
       <property name="text">
-       <string>List of Top 50 Used Words:</string>
+       <string>1</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_9">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>160</y>
+        <width>31</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>2</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_10">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>280</y>
+        <width>31</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>3</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_11">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>400</y>
+        <width>31</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>4</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_12">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>520</y>
+        <width>31</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>5</string>
+      </property>
+     </widget>
+     <widget class="QTextBrowser" name="textBrowser_3">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>160</y>
+        <width>781</width>
+        <height>111</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QTextBrowser" name="textBrowser_4">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>280</y>
+        <width>781</width>
+        <height>111</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QTextBrowser" name="textBrowser_5">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>400</y>
+        <width>781</width>
+        <height>111</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QTextBrowser" name="textBrowser_6">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>520</y>
+        <width>781</width>
+        <height>111</height>
+       </rect>
       </property>
      </widget>
     </widget>

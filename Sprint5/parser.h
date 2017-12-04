@@ -9,8 +9,7 @@
 #include <../lib/avltree.hpp>
 #include <../Sprint5/page.h>
 #include <../Sprint5/tag.h>
-
-
+#include <Indexer.h>
 
 
 using std::string;
@@ -31,7 +30,7 @@ private:
     std::vector<std::string> csv_read_row(std::istream &in, char delimiter);
     std::vector<std::string> csv_read_row(std::string &in, char delimiter);
     std::vector<int> idLocations;
-    void parseBodyWords(string, int);
+    void parseBodyWords(string&, int&);
 
 public:
 
@@ -48,8 +47,10 @@ public:
     string readTag(int);  //""
     int TotalQuestions();
     int findFile(int);
-    vector<string> vStrings;
-    void printWords();
+    //vector<string> vStrings;
+    Indexer* vStrings = new Indexer();
+    void clear();
+
 };
 
 #endif // PARSER_H

@@ -13,7 +13,7 @@ void query::processSearch(std::string s){
    for(int i = 0; i < s.length(); i++){
        s[i] = tolower(s[i]);
    }
-   std::cout << s;
+   //std::cout << s;
    std::istringstream input(s);
    std::string temp;
    std::string temp0;
@@ -37,20 +37,20 @@ void query::processSearch(std::string s){
        }else if(temp[0] == '['){
            temp0 = temp.substr(1, temp.length()-1 );
            two = true;
-           std::cout << temp0 << std::endl;
+           //std::cout << temp0 << std::endl;
        }else if(!two){
            qWord q{temp, a, o, n};
            search.push_back(q);
-           std::cout << temp << std::endl;
+           //std::cout << temp << std::endl;
        }else{
            temp = temp.substr(0, temp.length()-1);
            temp0 += " ";
            temp0 += temp;
-           std::cout << temp0 << std::endl;
+           //std::cout << temp0 << std::endl;
            qWord q{temp0, a, o, n};
            search.push_back(q);
            two = false;
        }
    }
-   std::cout << search.at(3).getWord() << std::endl;
+   //std::cout << search.at(3).getWord() << std::endl;
 }

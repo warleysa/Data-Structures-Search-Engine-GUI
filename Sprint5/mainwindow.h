@@ -60,11 +60,39 @@ private slots:
 
     void on_pushButton_5_clicked();
 
+    void on_pushButton_4_clicked();
+
+    void on_pushButton_8_clicked();
+
+    void on_pushButton_9_clicked();
+
+    void on_pushButton_10_clicked();
+
+    void on_pushButton_11_clicked();
+
+    void on_pushButton_12_clicked();
+
 private:
     Ui::MainWindow *ui;
     QTimer *timer;
     Parser p;
     int currDoc;
+    int i1;
+    int i2;
+    int i3;
+    int i4;
+    int i5;
+    int f1;
+    int f2;
+    int f3;
+    int f4;
+    int f5;
+    int rIndex1;
+    int rIndex2;
+    int rIndex3;
+    int rIndex4;
+    int rIndex5;
+
 };
 
 #endif // MAINWINDOW_H
