@@ -12,11 +12,13 @@ SOURCES += \
     Indexer.cpp \
     HashTable.cpp \
     Entry.cpp \
-    tag.cpp \
     page.cpp \
     main.cpp \
     parser.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    tag.cpp \
+    query.cpp \
+    qword.cpp
 
 HEADERS += \
     HashTable.h \
@@ -30,7 +32,9 @@ HEADERS += \
     Entry.h \
     page.h \
     parser.h \
-    mainwindow.h
+    mainwindow.h \
+    query.h \
+    qword.h
 
 DISTFILES += \
     notesParseIndex

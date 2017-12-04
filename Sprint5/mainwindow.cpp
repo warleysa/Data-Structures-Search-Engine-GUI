@@ -61,25 +61,25 @@ void MainWindow::on_startButton_released()  //Start Button
 
 void MainWindow::start() {
     int start_s=clock();
-    p.readFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/data/Q08.csv");
-    p.readTagFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/data/T08.csv");
+    p.readFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/Sprint5/data/Q08.csv");
+    p.readTagFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/Sprint5/data/T08.csv");
     /*
-    p.readFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/data/Q09.csv");
-    p.readTagFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/data/T09.csv");
-    p.readFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/data/Q10.csv");
-    p.readTagFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/data/T10.csv");
-    p.readFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/data/Q11.csv");
-    p.readTagFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/data/T11.csv");
-    p.readFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/data/Q12.csv");
-    p.readTagFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/data/T12.csv");
-    p.readFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/data/Q13.csv");
-    p.readTagFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/data/T13.csv");
-    p.readFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/data/Q14.csv");
-    p.readTagFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/data/T14.csv");
-    p.readFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/data/Q15.csv");
-    p.readTagFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/data/T15.csv");
-    p.readFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/data/Q16.csv");
-    p.readTagFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/data/T16.csv");
+    p.readFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/Sprint5/data/Q09.csv");
+    p.readTagFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/Sprint5/data/T09.csv");
+    p.readFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/Sprint5/data/Q10.csv");
+    p.readTagFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/Sprint5/data/T10.csv");
+    p.readFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/Sprint5/data/Q11.csv");
+    p.readTagFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/Sprint5/data/T11.csv");
+    p.readFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/Sprint5/data/Q12.csv");
+    p.readTagFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/Sprint5/data/T12.csv");
+    p.readFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/Sprint5/data/Q13.csv");
+    p.readTagFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/Sprint5/data/T13.csv");
+    p.readFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/Sprint5/data/Q14.csv");
+    p.readTagFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/Sprint5/data/T14.csv");
+    p.readFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/Sprint5/data/Q15.csv");
+    p.readTagFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/Sprint5/data/T15.csv");
+    p.readFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/Sprint5/data/Q16.csv");
+    p.readTagFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11Sprint5//data/T16.csv");
     */
     int stop_s=clock();
     QString time = QString::number((stop_s-start_s)/double(CLOCKS_PER_SEC));
@@ -201,4 +201,16 @@ void MainWindow::on_pushButton_6_clicked()
 void MainWindow::on_pushButton_7_clicked()
 {
     docUpdater(currDoc-1);
+}
+
+void MainWindow::on_pushButton_5_clicked()
+{
+    QString tagQS = ui->label_4->text();
+    QString quesQS = ui->label_5->text();
+    QByteArray tagArray = tagQS.toLocal8Bit();
+    char* bufferT = tagArray.data();
+    QByteArray quesArray = quesQS.toLocal8Bit();
+    char* bufferQ = quesArray.data();
+    p.readTagFile(bufferT);
+    p.readFile(bufferQ);
 }
