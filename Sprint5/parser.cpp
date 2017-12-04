@@ -65,7 +65,6 @@ int Parser::readFile(char* file) {
         }
         in.close();
         cout << "END OF FILE" << endl;
-
         return 0;
 }
 

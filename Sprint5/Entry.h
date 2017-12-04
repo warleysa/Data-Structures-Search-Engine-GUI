@@ -1,6 +1,3 @@
-#ifndef ENTRY_H
-#define ENTRY_H
-
 #pragma once
 #include <vector>
 #include <string>
@@ -13,16 +10,19 @@ using namespace std;
 
 class Entry {
 private:
-    string tag; //<><><><>
+    string tag; //<><><><> TAG IS WORD
     vector<long> docnum; //<><><><>
+    vector <int> wordLocation;
 public:
     Entry& operator = (const Entry& other);
     Entry(const Entry& other);  // copy constructor
     Entry();
-    Entry(string x, long y);
+    Entry(string x, long y, int z);
     string getTag();
-    void addDocNum(long x);
+    void addDocNum(long x, int y);
+    int getWordLocation(int x);
     void output(ostream& oput);
-};
+    long getDocNum(int x); //
+    int getSize();
 
-#endif
+};

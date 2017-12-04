@@ -1,7 +1,7 @@
-#include <../Sprint5/Entry.h>
+#include "Entry.h"
 #include <string>
 #include <vector>
-#include <math.h>
+#include "math.h"
 
 using namespace std; //same word on tons of pages (elephant)
 
@@ -16,21 +16,26 @@ Entry& Entry::operator = (const Entry& other) {
         docnum.clear();
         tag = other.tag;
         for (int i{};i<other.docnum.size();i++)
-            addDocNum(other.docnum[i]);
+            addDocNum(other.docnum[i], other.wordLocation[i]);
     }
 
+}
+
+int Entry::getWordLocation(int x) {
+    return wordLocation[x];//returns word from vector
 }
 
 Entry::Entry(const Entry& other) {
     docnum.clear();
     tag = other.tag;
     for (int i{};i<other.docnum.size();i++)
-        addDocNum(other.docnum[i]);
+        addDocNum(other.docnum[i], other.wordLocation[i]);
 }
 
-Entry::Entry(string x, long y){
+Entry::Entry(string x, long y, int z){
     tag = x;
     docnum.push_back(y);
+    wordLocation.push_back(z); //adds location to vector
 }
 
 void Entry::output(ostream& oput) {
@@ -52,6 +57,13 @@ void Entry::output(ostream& oput) {
 
 string Entry::getTag() {return tag;}
 
-void Entry::addDocNum(long x) {
+void Entry::addDocNum(long x, int z) {
     docnum.push_back(x); //inserts as new largest pg num
+    wordLocation.push_back(z);
 }
+
+long Entry::getDocNum(int x) {
+    return docnum[x];
+}
+
+int Entry::getSize() { return docnum.size(); }

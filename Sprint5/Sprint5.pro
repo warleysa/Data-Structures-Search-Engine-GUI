@@ -9,32 +9,31 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += \
-    Indexer.cpp \
-    HashTable.cpp \
-    Entry.cpp \
     page.cpp \
     main.cpp \
     parser.cpp \
     mainwindow.cpp \
     tag.cpp \
     query.cpp \
-    qword.cpp
+    qword.cpp \
+    Results.cpp \
+    Indexer.cpp \
+    Entry.cpp
 
 HEADERS += \
-    HashTable.h \
     userinterface_nonGUI.h \
     IndexInterface.h \
-    Indexer.h \
-    HashTable.h \
-    Entry.h \
     csv.h \
     tag.h \
-    Entry.h \
     page.h \
     parser.h \
     mainwindow.h \
     query.h \
-    qword.h
+    qword.h \
+    Results.h \
+    Indexer.h \
+    HashTable.h \
+    Entry.h
 
 DISTFILES += \
     notesParseIndex
