@@ -11,7 +11,7 @@ using namespace std;
 class Entry {
 private:
     string tag; //<><><><> TAG IS WORD
-    vector<long> docnum; //<><><><>
+    vector <long> docnum; //<><><><>
     vector <int> wordLocation;
 public:
     Entry& operator = (const Entry& other);

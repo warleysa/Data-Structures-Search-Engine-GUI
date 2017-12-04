@@ -18,7 +18,8 @@ SOURCES += \
     qword.cpp \
     Results.cpp \
     Indexer.cpp \
-    Entry.cpp
+    Entry.cpp \
+    porter2_stemmer.cpp
 
 HEADERS += \
     userinterface_nonGUI.h \
@@ -33,7 +34,8 @@ HEADERS += \
     Results.h \
     Indexer.h \
     HashTable.h \
-    Entry.h
+    Entry.h \
+    porter2_stemmer.h
 
 DISTFILES += \
     notesParseIndex

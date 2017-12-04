@@ -5,6 +5,7 @@
 #include <fstream>
 #include "Entry.h"
 #include "porter2_stemmer.h"
+
 #include <algorithm>
 using namespace std;
 
