@@ -18,7 +18,9 @@ using std::cout;
 using std::endl;
 using std::vector;
 
-Parser::Parser(){}
+Parser::Parser(){
+
+}
 
 void Parser::readTagFile(char* file){
     io::CSVReader<2> in(file);

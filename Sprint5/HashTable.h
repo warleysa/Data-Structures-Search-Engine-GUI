@@ -3,24 +3,15 @@
 #include <array>
 #include <string>
 #include <iostream>
-<<<<<<< HEAD
-
 
 
 const long TABLESIZE = 500000;
-=======
-
-
-
-const long TABLESIZE = 200000;
->>>>>>> 5b38a75... Fixed hash table for templating and making the array/vector
 
 template<class T>
 class HashTable { //inherets IndexInterface stuff
 private:
     std::array<std::vector<T>, TABLESIZE> table; //vectors allow chaining, positions 0 - 199999 where things can be hashed to, if collision, bumped down chain
     int HashValue(std::string); //takes tag, runs it through formula to turn into number so it can be placed in table
-<<<<<<< HEAD
     int totalAdded;
 public:
     HashTable();
@@ -47,20 +38,6 @@ int HashTable<T>::totalEntries() {
 }
 
 template<class T>
-=======
-public:
-    HashTable();
-    void add(T, std::string);
-    T* find(std::string);
-};
-
-template<class T>
-HashTable<T>::HashTable() {
-    std::fill(table.begin(), table.end(), std::vector<T>());
-}
-
-template<class T>
->>>>>>> 5b38a75... Fixed hash table for templating and making the array/vector
 int HashTable<T>::HashValue(std::string s) { //takes tag, runs it through formula to turn into number so it can be placed in table
     //DJB2 hash function
     unsigned long H = 5381; //unsigned saves memory
@@ -75,26 +52,18 @@ int HashTable<T>::HashValue(std::string s) { //takes tag, runs it through formul
 }
 
 template<class T>
-<<<<<<< HEAD
+
 void HashTable<T>::add(T& e, std::string tag) {
     int l = HashValue(tag); //converts tag to position num according to formula
     //std::cout << "TABLE ELEMENT ACCESSED: " << l << std::endl;
     //std::cout << "vector ADD: " << table[l]. << std::endl;
     table[l].push_back(e); //adds it into the table
     totalAdded = totalAdded+1;
-=======
-void HashTable<T>::add(T e, std::string tag) {
-    int l = HashValue(tag); //converts tag to position num according to formula
-    std::cout << "TABLE ELEMENT ACCESSED: " << l << std::endl;
-    //std::cout << "vector ADD: " << table[l]. << std::endl;
-    table[l].push_back(e); //adds it into the table
-
->>>>>>> 5b38a75... Fixed hash table for templating and making the array/vector
 }
 
 template<class T>
+
 T* HashTable<T>::find(std::string s) {
-<<<<<<< HEAD
     //std::cout << "entering nullptr1" << std::endl;
 
     int l = HashValue(s); //if tag in table, in position l. problem is that sometimes more than 1 tag at same spot (collision) which I handle with chaining
@@ -108,15 +77,4 @@ T* HashTable<T>::find(std::string s) {
     }
     //std::cout << "RETURNING NULLPTR: " << std::endl;
     return nullptr;
-=======
-    std::cout << "entering nullptr1" << std::endl;
-    std::cout << "entering nullptr25326" << std::endl;
-
-    long l = HashValue(s); //if tag in table, in position l. problem is that sometimes more than 1 tag at same spot (collision) which I handle with chaining
-    for (int i{}; i < table[l].size()-1; i++) {
-        if (table[l][i].wordValue == s) {
-            return &table[l][i];
-        }
-    }
->>>>>>> 5b38a75... Fixed hash table for templating and making the array/vector
 }

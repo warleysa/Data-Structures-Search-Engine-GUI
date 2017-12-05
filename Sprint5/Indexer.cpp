@@ -12,9 +12,7 @@ using namespace std;
 
 Indexer::Indexer() {
     index = new HashTable<word>();
-<<<<<<< HEAD
     qEntered = false;
-=======
 }
 
 Indexer::Indexer(HashTable<word>* i) { //overloaded constructor, connects indexer to index MAYBE CHANCE TO POINTER
@@ -61,7 +59,6 @@ Indexer::Indexer(HashTable<word>* i) { //overloaded constructor, connects indexe
 }
 */
 
-<<<<<<< HEAD
 
 void Indexer::readNewWord(int& inputID, string& inputWord) {
 
@@ -74,31 +71,9 @@ void Indexer::readNewWord(int& inputID, string& inputWord) {
         //cout << "finding word" << endl;
         index->find(inputWord)->updateFreq(inputID);
     }
-
+    return;
 }
-
-=======
-void Indexer::readNewWord(int inputID, string inputWord) {
-    /*
-    ifstream iin("stopwords.txt");
-    while (!iin.eof()) { //while not end of file
-        string w;
-        iin >> w;               //reads all words into vector
-        dropWords.push_back(w);
-    }
-    iin.close();
-    */
-
-    if(totalQuestions == 0) {
-        word* temp = new word(inputWord, inputID);
-        index->add(*temp, inputWord);
-        totalQuestions = 1;
-    } else {
-        //index->find(inputWord)->updateFreq(inputID);
-    }
-
-}
-
+/*
 void Indexer::cleanWordList(vector <string> &wl, vector <int> &wLoc){
     for(int x{}; x < dropWords.size(); x++) {
         for(int i{wl.size() - 1}; i >= 0; i--) { //goes from end to begining
@@ -112,8 +87,8 @@ void Indexer::cleanWordList(vector <string> &wl, vector <int> &wLoc){
         Porter2Stemmer::stem(wl[i]); //calls stem function from inside porter2stemmer and stems words
     }
 }
+*/
 
->>>>>>> 5b38a75... Fixed hash table for templating and making the array/vector
 void Indexer::readTagFile(int inputID, string inputWord) {
     /*
     ifstream in(fn);
@@ -143,27 +118,12 @@ void Indexer::readTagFile(int inputID, string inputWord) {
     */
 }
 
-vector <string> Indexer::getTop50Words() {
-
-}
 
 int Indexer::getTotalWords() {
     return index->totalEntries();
 }
 
-<<<<<<< HEAD
 word Indexer::searchIndex(string t){ //vector of ints which are document numbers, string is tag
     return *(index->find(t));
-=======
-vector <long> Indexer::searchIndex(string t){ //vector of ints which are document numbers, string is tag
-    /*
-    Entry* e = index -> find(t); //FROM AVL TREE FIND ********
-    vector <long> docNums;
-    for (int i{}; i < e->getSize(); i++) {
-        docNums.push_back(e->getDocNum(i));
-    }
-    return docNums;
-    */
->>>>>>> 5b38a75... Fixed hash table for templating and making the array/vector
 }
 

@@ -9,7 +9,6 @@
 
 int main(int argc, char *argv[])
 {
-<<<<<<< HEAD
     /*
     Indexer* test = new Indexer();
     test->readNewWord(12564, "hello");
@@ -30,13 +29,4 @@ int main(int argc, char *argv[])
     w.show();
     //return 0;
     return a.exec();
-=======
-    Indexer* test = new Indexer();
-
-    //QApplication a(argc, argv);
-    //MainWindow w;
-    //w.show();
-    return 0;
-    //return a.exec();
->>>>>>> 5b38a75... Fixed hash table for templating and making the array/vector
-}
+};

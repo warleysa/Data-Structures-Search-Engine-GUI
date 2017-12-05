@@ -2,7 +2,6 @@
 #define WORD_H
 
 #include <vector>
-<<<<<<< HEAD
 #include <iostream>
 #include <algorithm>
 
@@ -12,20 +11,8 @@ void qSort(int, int);
 void qSort();
 
 class word {
-private:
 
 public:
-    vector<int> idList;
-    vector<int> freqList;
-    string wordValue;
-    word() {
-        wordValue = " ";
-=======
-
-using namespace std;
-
-class word {
-private:
     vector<int> idList;
     vector<int> freqList;
 
@@ -33,7 +20,6 @@ public:
     string wordValue = " ";
     word() {
 
->>>>>>> 5b38a75... Fixed hash table for templating and making the array/vector
     }
 
     word(string input, int inputID) {
@@ -56,7 +42,6 @@ public:
         freqList.push_back(tempValue);
         return;
     }
-<<<<<<< HEAD
 
     void print() {
         cout << "ID LIST::::" << endl;
@@ -124,13 +109,9 @@ public:
         int j = freqList.size()-1;
         qSort(i, j);
 
-
-
         std::reverse(freqList.begin(), freqList.end());
         std::reverse(idList.begin(), idList.end());
     }
-=======
->>>>>>> 5b38a75... Fixed hash table for templating and making the array/vector
 };
 
 #endif // WORD_H

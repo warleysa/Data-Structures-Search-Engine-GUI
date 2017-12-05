@@ -8,35 +8,34 @@ CONFIG += qt
 DEFINES += QT_DEPRECATED_WARNINGS
 -Wl,--large-address-aware
 
-
 SOURCES += \
-    page.cpp \
     main.cpp \
-    parser.cpp \
-    mainwindow.cpp \
     tag.cpp \
-    query.cpp \
     qword.cpp \
-    Indexer.cpp \
-    porter2_stemmer.cpp
+    query.cpp \
+    porter2_stemmer.cpp \
+    parser.cpp \
+    page.cpp \
+    mainwindow.cpp \
+    Indexer.cpp
 
-HEADERS += \
-    userinterface_nonGUI.h \
-    IndexInterface.h \
-    csv.h \
-    tag.h \
-    page.h \
-    parser.h \
-    mainwindow.h \
-    query.h \
-    qword.h \
-    Indexer.h \
-    HashTable.h \
-    porter2_stemmer.h \
-    word.h
+FORMS += \
+    mainwindow.ui
 
 DISTFILES += \
     notesParseIndex
 
-FORMS += \
-    mainwindow.ui
+HEADERS += \
+    csv.h \
+    Indexer.h \
+    word.h \
+    HashTable.h \
+    userinterface_nonGUI.h \
+    tag.h \
+    qword.h \
+    query.h \
+    porter2_stemmer.h \
+    parser.h \
+    page.h \
+    mainwindow.h \
+    IndexInterface.h
