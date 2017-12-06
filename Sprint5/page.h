@@ -11,7 +11,8 @@ public:
     std::string title;
     std::string body;
     std::string code;
-    Page(int&, std::string&, std::string&, std::string&);
+    Page(int, std::string, std::string, std::string);
+    void pageSet(int&, std::string&, std::string&, std::string&);
     Page();
 };
 

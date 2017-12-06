@@ -19,17 +19,18 @@ using std::endl;
 using std::vector;
 
 Parser::Parser(){
-
+    rowPos = 0;
+    rows.reserve(1500000);
 }
 
 void Parser::readTagFile(char* file){
     io::CSVReader<2> in(file);
     in.read_header(io::ignore_extra_column, "Id", "Tag" );
-    float i = 0;
+    int i = 0;
     string p = " ";
     while(in.read_row(i, p)){
         Tag tempTag{i, p};
-        tags.push_back(tempTag);
+        vStrings->readNewTag(i, p);
     }
 }
 
@@ -62,7 +63,7 @@ int Parser::readFile(char* file) {
                     //cout << "[" << tempCode << "]" << "\t";
                 }
             }
-            Page tempPage{endID, tempTitle, tempBody, tempCode};
+            tempPage.pageSet(endID, tempTitle, tempBody, tempCode);
             rows.push_back(tempPage);
         }
         in.close();
@@ -125,10 +126,6 @@ int Parser::readScore(int index){
     return rows[index].score;
 }
 
-int Parser::readTagId(int index){
-    return tags[index].tagId;
-}
-
 string Parser::readTitle(int index){
     cout << rows[index].title << endl;
     return rows[index].title;
@@ -142,16 +139,14 @@ string Parser::readCode(int index){
     return rows[index].code;
 }
 
-string Parser::readTag(int index){
-    return tags[index].phrase;
-}
 
 int Parser::TotalQuestions() {
     return idLocations.size();
 }
 
 int Parser::findFile(int ID) {
-    int pos = -1;
+    int pos = 0;
+
     for(int i = 0; i <= idLocations.size(); i++) {
         cout << idLocations[i] << endl;
         if(ID == idLocations[i]) {
@@ -181,7 +176,6 @@ void Parser::parseBodyWords(std::string &input, int &idNumber) {
         word.erase(std::remove(word.begin(), word.end(), '!'), word.end());
         word.erase(std::remove(word.begin(), word.end(), '='), word.end());
         word.erase(std::remove(word.begin(), word.end(), '"'), word.end());
-
         transform(word.begin(), word.end(), word.begin(), ::tolower);
         vStrings->readNewWord(idNumber, word);
     }

@@ -77,21 +77,21 @@ private:
     QTimer *timer;
     Parser p;
     int currDoc;
-    int i1;
-    int i2;
-    int i3;
-    int i4;
-    int i5;
-    int f1;
-    int f2;
-    int f3;
-    int f4;
-    int f5;
-    int rIndex1;
-    int rIndex2;
-    int rIndex3;
-    int rIndex4;
-    int rIndex5;
+    int i1 = 0;
+    int i2 = 0;
+    int i3 = 0;
+    int i4 = 0;
+    int i5 = 0;
+    int f1 = 0;
+    int f2 = 0;
+    int f3 = 0;
+    int f4 = 0;
+    int f5 = 0;
+    int rIndex1 = 0;
+    int rIndex2 = 0;
+    int rIndex3 = 0;
+    int rIndex4 = 0;
+    int rIndex5 = 0;
 
 };
 

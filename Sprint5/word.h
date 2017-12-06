@@ -22,11 +22,10 @@ public:
 
     }
 
-    word(string input, int inputID) {
+    word(string& input, int inputID, int freq) {
         wordValue = input;
         idList.push_back(inputID);
-        int tempValue = 1;
-        freqList.push_back(tempValue);
+        freqList.push_back(freq);
     }
 
 
@@ -39,6 +38,19 @@ public:
         }
         idList.push_back(inputID);
         int tempValue = 1;
+        freqList.push_back(tempValue);
+        return;
+    }
+
+    void updateTagFreq(int inputID) {
+        for(int i =0; i < idList.size(); i++) {
+            if(idList[i] == inputID) {
+                freqList[i] = freqList[i] + 5;
+                return;
+            }
+        }
+        idList.push_back(inputID);
+        int tempValue = 5;
         freqList.push_back(tempValue);
         return;
     }

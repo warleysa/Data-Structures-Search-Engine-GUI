@@ -18,7 +18,7 @@ public:
     int getTotalWords();
     Indexer();
     Indexer(HashTable<word>* i);
-    void readTagFile(int inputID, string inputWord);
+    void readNewTag(int& inputID, string& inputWord);
     word searchIndex(string); //vector of ints which are document numbers
     void readNewWord(int& inputID, string& inputWord);
 

@@ -64,8 +64,8 @@ void Indexer::readNewWord(int& inputID, string& inputWord) {
 
     if(index->find(inputWord) == nullptr) {
         //cout << "READING WORD" << endl;
-        word* temp = new word(inputWord, inputID);
-        index->add(*temp, inputWord);
+        word temp(inputWord, inputID, 1);
+        index->add(temp, inputWord);
         qEntered = true;
     } else {
         //cout << "finding word" << endl;
@@ -73,6 +73,22 @@ void Indexer::readNewWord(int& inputID, string& inputWord) {
     }
     return;
 }
+
+void Indexer::readNewTag(int& inputID, string& inputTag) {
+
+    if(index->find(inputTag) == nullptr) {
+        //cout << "READING TAG" << endl;
+        word* temp = new word(inputTag, inputID, 5);
+        index->add(*temp, inputTag);
+        qEntered = true;
+    } else {
+        //cout << "finding TAG" << endl;
+        index->find(inputTag)->updateTagFreq(inputID);
+    }
+    return;
+}
+
+
 /*
 void Indexer::cleanWordList(vector <string> &wl, vector <int> &wLoc){
     for(int x{}; x < dropWords.size(); x++) {
@@ -89,41 +105,16 @@ void Indexer::cleanWordList(vector <string> &wl, vector <int> &wLoc){
 }
 */
 
-void Indexer::readTagFile(int inputID, string inputWord) {
-    /*
-    ifstream in(fn);
-    string temp;
-    string s; //whole string
-    string tag;
-    string sNum;
-    string sDNum; //doc #
-    long num;
-    long dNum;
-    getline(in, temp); //reads first line in (heading, garbage) and skips it
-    while(!in.eof()) { //read until end of file
-        getline(in, s);
-        transform(s.begin(), s.end(), s.begin(), ::tolower); //changes all to lower case
-        //UP UNTIL LINE 141 BREAKING UP CSV INFO *********************************
-        string delimiter = ",";
-        sNum = s.substr(0, s.find(delimiter)); //gets nu
-        s.erase(0, s.find(delimiter) + delimiter.length());
-        sDNum = s.substr(0, s.find(delimiter)); //gets doc num
-        s.erase(0, s.find(delimiter) + delimiter.length());
-        //tag = s.substr(0, s.find(delimiter)); //gets tag
-        tag = s.substr(0, s.length() - 1); //gets tag
-        //s.erase(0, s.find(delimiter) + delimiter.length());
-        dNum = atol(sDNum.c_str()); //string to long
-        parseWords(tag, dNum, -1);
-    }
-    */
-}
-
 
 int Indexer::getTotalWords() {
     return index->totalEntries();
 }
 
 word Indexer::searchIndex(string t){ //vector of ints which are document numbers, string is tag
+    if(index->find(t) == nullptr) {
+        word temp;
+        return temp;
+    }
     return *(index->find(t));
 }
 

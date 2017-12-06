@@ -25,12 +25,12 @@ private:
     const int bodyCol = 7; //""
     const int codeCol = 8; //""
     std::vector<Page> rows; //can be replaced with AVL or Hash
-    std::vector<Tag> tags;
-
     std::vector<std::string> csv_read_row(std::istream &in, char delimiter);
     std::vector<std::string> csv_read_row(std::string &in, char delimiter);
     std::vector<int> idLocations;
     void parseBodyWords(string&, int&);
+    int rowPos;
+    Page tempPage;
 
 public:
 
@@ -44,7 +44,6 @@ public:
     string readTitle(int); //""
     string readBody(int); //""
     string readCode(int); //""
-    string readTag(int);  //""
     int TotalQuestions();
     int findFile(int);
     //vector<string> vStrings;

@@ -62,9 +62,10 @@ void MainWindow::start() {
     int start_s=clock();
     p.readFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/Sprint5/data/Q08.csv");
     p.readTagFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/Sprint5/data/T08.csv");
-    /*
+
     p.readFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/Sprint5/data/Q09.csv");
     p.readTagFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/Sprint5/data/T09.csv");
+    /*
     p.readFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/Sprint5/data/Q10.csv");
     p.readTagFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/Sprint5/data/T10.csv");
     p.readFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/Sprint5/data/Q11.csv");
@@ -221,16 +222,42 @@ void MainWindow::on_pushButton_4_clicked()
     string qInput = query.toStdString();
     word result = p.vStrings->searchIndex(qInput);
     result.qSort();
-    i1 = result.idList[0];
-    i2 = result.idList[1];
-    i3 = result.idList[2];
-    i4 = result.idList[3];
-    i5 = result.idList[4];
-    f1 = result.freqList[0];
-    f2 = result.freqList[1];
-    f3 = result.freqList[2];
-    f4 = result.freqList[3];
-    f5 = result.freqList[4];
+    if (result.idList.size() > 0) {
+        i1 = result.idList[0];
+        f1 = result.freqList[0];
+    } else {
+        i1 = 0;
+        f1 = 0;
+    }
+    if (result.idList.size() > 1) {
+        i2 = result.idList[1];
+        f2 = result.freqList[1];
+    } else {
+        i2 = 0;
+        f2 = 0;
+    }
+    if (result.idList.size() > 2) {
+        i3 = result.idList[2];
+        f3 = result.freqList[2];
+    } else {
+        i3 = 0;
+        f3 = 0;
+    }
+
+    if (result.idList.size() > 3) {
+        i4 = result.idList[3];
+        f4 = result.freqList[3];
+    } else {
+        i4 = 0;
+        f4 = 0;
+    }
+    if (result.idList.size() > 4) {
+        i5 = result.idList[4];
+        f5 = result.freqList[4];
+    } else {
+        i5 = 0;
+        f5 = 0;
+    }
     cout << "f1: " << f1  << endl;
     rIndex1 = p.findFile(i1);
     QString text1;
