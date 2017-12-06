@@ -32,7 +32,7 @@ private:
     Page tempPage;
 
 public:
-
+    int docLoadPos = 0;
     Parser(); //default (does nothing)
     Parser(char*, char*); //overloaded constructor with two file names
     int readFile(char*); //reads question file and stores to vector or AVL or Hash depending on what's used

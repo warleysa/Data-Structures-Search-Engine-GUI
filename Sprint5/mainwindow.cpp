@@ -60,13 +60,13 @@ void MainWindow::on_startButton_released()  //Start Button
 
 void MainWindow::start() {
     int start_s=clock();
-    /*
+
     p->readFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/Sprint5/data/Q08.csv");
     p->readTagFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/Sprint5/data/T08.csv");
 
     p->readFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/Sprint5/data/Q09.csv");
     p->readTagFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/Sprint5/data/T09.csv");
-
+    /*
     p->readFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/Sprint5/data/Q10.csv");
     p->readTagFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/Sprint5/data/T10.csv");
     p->readFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/Sprint5/data/Q11.csv");
@@ -78,13 +78,12 @@ void MainWindow::start() {
     p->readTagFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/Sprint5/data/T13.csv");
     p->readFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/Sprint5/data/Q14.csv");
     p->readTagFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/Sprint5/data/T14.csv");
-    */
     p->readFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/Sprint5/data/Q16.csv");
     p->readTagFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/Sprint5/data/T16.csv");
 
     p->readFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/Sprint5/data/Q15.csv");
     p->readTagFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/Sprint5/data/T15.csv");
-
+    */
     int stop_s=clock();
     QString time = QString::number((stop_s-start_s)/double(CLOCKS_PER_SEC));
     on_label_time_linkActivated(time);
@@ -168,7 +167,7 @@ void MainWindow::on_pushButton_clicked()
     int rIndex = 0;
     rIndex = p->findFile(index);
     docUpdater(rIndex);
-    QString info = QString::fromStdString(std::to_string(p->readId(rIndex)));
+    QString info = QString::fromStdString(std::to_string(index));
     info.append("\n Title: \n");
     info.append(QString::fromStdString(p->readTitle(rIndex)));
     info.append("\n Body: \n");

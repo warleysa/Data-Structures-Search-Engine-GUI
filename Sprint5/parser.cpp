@@ -19,6 +19,9 @@ using std::endl;
 using std::vector;
 
 Parser::Parser(){
+    rows.resize(1270000);
+    Page* filler = new Page();
+    std::fill(rows.begin(), rows.end(), *filler);
 }
 
 void Parser::readTagFile(char* file){
@@ -61,8 +64,8 @@ int Parser::readFile(char* file) {
                     //cout << "[" << tempCode << "]" << "\t";
                 }
             }
-            tempPage.pageSet(endID, tempTitle, tempBody, tempCode);
-            rows.push_back(tempPage);
+            rows.at(docLoadPos).pageSet(endID, tempTitle, tempBody, tempCode);
+            docLoadPos++;
         }
         in.close();
         cout << "END OF FILE : " << file << endl;
