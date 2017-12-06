@@ -19,8 +19,6 @@ using std::endl;
 using std::vector;
 
 Parser::Parser(){
-    rowPos = 0;
-    rows.reserve(1500000);
 }
 
 void Parser::readTagFile(char* file){
@@ -143,6 +141,7 @@ string Parser::readCode(int index){
 int Parser::TotalQuestions() {
     return idLocations.size();
 }
+
 
 int Parser::findFile(int ID) {
     int pos = 0;

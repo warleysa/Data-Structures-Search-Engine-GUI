@@ -9,17 +9,36 @@
 
 #include <algorithm>
 using namespace std;
+vector <string> dropWords;
 
 Indexer::Indexer() {
     index = new HashTable<word>();
     qEntered = false;
+    getStopWords();
+}
+
+Indexer::~Indexer() {
+    index->clear();
+    delete index;
+}
+
+
+void Indexer::getStopWords() {
+    ifstream no("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/Sprint5/data/stop.txt");
+    string temp;
+    while(no >> temp){
+        dropWords.push_back(temp);
+    }
+    no.close();
+    for(int i = 0; i < dropWords.size(); i++) {
+        cout << "Word: " << dropWords[i] << endl;
+    }
 }
 
 Indexer::Indexer(HashTable<word>* i) { //overloaded constructor, connects indexer to index MAYBE CHANCE TO POINTER
     index = i;
 }
 
-vector <string> dropWords;
 /*
 
 vector <Results> Indexer::findWord(string word) {
@@ -61,6 +80,11 @@ Indexer::Indexer(HashTable<word>* i) { //overloaded constructor, connects indexe
 
 
 void Indexer::readNewWord(int& inputID, string& inputWord) {
+    if(binary_search(dropWords.begin(), dropWords.end(), inputWord) == true) {
+        return;
+    }
+
+    Porter2Stemmer::stem(inputWord);
 
     if(index->find(inputWord) == nullptr) {
         //cout << "READING WORD" << endl;
@@ -73,6 +97,7 @@ void Indexer::readNewWord(int& inputID, string& inputWord) {
     }
     return;
 }
+
 
 void Indexer::readNewTag(int& inputID, string& inputTag) {
 

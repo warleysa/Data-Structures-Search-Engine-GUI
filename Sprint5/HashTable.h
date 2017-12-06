@@ -5,20 +5,19 @@
 #include <iostream>
 
 
-const short TABLESIZE = 1000000;
+const long TABLESIZE = 500000;
 
 template<class T>
 class HashTable { //inherets IndexInterface stuff
 private:
     std::array<std::vector<T>, TABLESIZE> table; //vectors allow chaining, positions 0 - 199999 where things can be hashed to, if collision, bumped down chain
-    int HashValue(std::string&); //takes tag, runs it through formula to turn into number so it can be placed in table
+    int HashValue(std::string); //takes tag, runs it through formula to turn into number so it can be placed in table
     int totalAdded;
-
 public:
     HashTable();
     int totalEntries();
-    void add(T&, std::string&);
-    T* find(std::string&);
+    void add(T&, std::string);
+    T* find(std::string);
     void clear();
 };
 
@@ -39,10 +38,10 @@ int HashTable<T>::totalEntries() {
 }
 
 template<class T>
-int HashTable<T>::HashValue(std::string& s) { //takes tag, runs it through formula to turn into number so it can be placed in table
+int HashTable<T>::HashValue(std::string s) { //takes tag, runs it through formula to turn into number so it can be placed in table
     //DJB2 hash function
+    unsigned long H = 5381; //unsigned saves memory
     int c;
-    unsigned long H = 5381;
     for (int i{}; i < s.length(); i++) {
         c = s[i]; //char into int automatically converts to ASCII
         H = ((H << 5) + H) + tolower(c); //<< bit shift 5 to left (multiply num by 32 but in binary shifts) adds an H then next character
@@ -54,7 +53,7 @@ int HashTable<T>::HashValue(std::string& s) { //takes tag, runs it through formu
 
 template<class T>
 
-void HashTable<T>::add(T& e, std::string& tag) {
+void HashTable<T>::add(T& e, std::string tag) {
     int l = HashValue(tag); //converts tag to position num according to formula
     //std::cout << "TABLE ELEMENT ACCESSED: " << l << std::endl;
     //std::cout << "vector ADD: " << table[l]. << std::endl;
@@ -64,14 +63,15 @@ void HashTable<T>::add(T& e, std::string& tag) {
 
 template<class T>
 
-T* HashTable<T>::find(std::string& s) {
+T* HashTable<T>::find(std::string s) {
     //std::cout << "entering nullptr1" << std::endl;
 
     int l = HashValue(s); //if tag in table, in position l. problem is that sometimes more than 1 tag at same spot (collision) which I handle with chaining
     //std::cout << "TABLE ELEMENT ACCESSED: " << l << std::endl;
-    for (int i{}; i < table[l].size(); i++) {
+
+    for (int i = 0; i < table[l].size(); i++) {
         if (table[l][i].wordValue == s) {
-            //std::cout << "FOUND WORD: " << s << std::endl;
+            //std::cout << "TABLE SIZE: " << table[l].size() << std::endl;
            // std::cout << "TABLE WORD ACCESSED: " << table[l][i].wordValue << std::endl;
             return &table[l][i];
         }

@@ -29,7 +29,6 @@ private:
     std::vector<std::string> csv_read_row(std::string &in, char delimiter);
     std::vector<int> idLocations;
     void parseBodyWords(string&, int&);
-    int rowPos;
     Page tempPage;
 
 public:
@@ -46,7 +45,6 @@ public:
     string readCode(int); //""
     int TotalQuestions();
     int findFile(int);
-    //vector<string> vStrings;
     Indexer* vStrings = new Indexer();
     void clear();
 

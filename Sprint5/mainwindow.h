@@ -75,7 +75,7 @@ private slots:
 private:
     Ui::MainWindow *ui;
     QTimer *timer;
-    Parser p;
+    Parser* p = new Parser();
     int currDoc;
     int i1 = 0;
     int i2 = 0;

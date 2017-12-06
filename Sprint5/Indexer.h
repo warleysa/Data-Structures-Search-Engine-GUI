@@ -15,8 +15,10 @@ private:
     int totalWords = 0;
 public:
     HashTable<word>* index;
+    void getStopWords();
     int getTotalWords();
     Indexer();
+    ~Indexer();
     Indexer(HashTable<word>* i);
     void readNewTag(int& inputID, string& inputWord);
     word searchIndex(string); //vector of ints which are document numbers

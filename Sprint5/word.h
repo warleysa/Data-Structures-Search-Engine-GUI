@@ -15,10 +15,16 @@ class word {
 public:
     vector<int> idList;
     vector<int> freqList;
+    int inC = 0;
+    int inT = 0;
 
 public:
     string wordValue = " ";
     word() {
+
+    }
+
+    ~word() {
 
     }
 
@@ -29,31 +35,32 @@ public:
     }
 
 
-    void updateFreq(int inputID) {
-        for(int i =0; i < idList.size(); i++) {
+    void updateFreq(int& inputID) {
+        int tempValue = 1;
+        for(int i = 0; i < idList.size(); i++) {
             if(idList[i] == inputID) {
-                freqList[i] = freqList[i] + 1;
+                freqList[i] = freqList[i] + tempValue;
                 return;
             }
         }
         idList.push_back(inputID);
-        int tempValue = 1;
         freqList.push_back(tempValue);
         return;
     }
 
-    void updateTagFreq(int inputID) {
-        for(int i =0; i < idList.size(); i++) {
+    void updateTagFreq(int& inputID) {
+        int tempValue = 5;
+        for(int i = 0; i < idList.size(); i++) {
             if(idList[i] == inputID) {
-                freqList[i] = freqList[i] + 5;
+                freqList[i] = freqList[i] + tempValue;
                 return;
             }
         }
         idList.push_back(inputID);
-        int tempValue = 5;
         freqList.push_back(tempValue);
         return;
     }
+
 
     void print() {
         cout << "ID LIST::::" << endl;
