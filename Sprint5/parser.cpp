@@ -18,11 +18,22 @@ using std::cout;
 using std::endl;
 using std::vector;
 
+/**
+ * @brief Parser::Parser
+ * Fills rows of entire questions with a filler/empty object
+ */
+
 Parser::Parser(){
     rows.resize(1270000);
     Page* filler = new Page();
     std::fill(rows.begin(), rows.end(), *filler);
 }
+
+/**
+ * @brief Parser::readTagFile
+ * @param file
+ * Reads in a tag file with path that is passed in
+ */
 
 void Parser::readTagFile(char* file){
     io::CSVReader<2> in(file);
@@ -34,6 +45,13 @@ void Parser::readTagFile(char* file){
         vStrings->readNewTag(i, p);
     }
 }
+
+/**
+ * @brief Parser::readFile
+ * @param file
+ * @return
+ * Accepts a file, reads it row by row and stores the data into HashTable
+ */
 
 int Parser::readFile(char* file) {
     std::ifstream in(file);
@@ -72,11 +90,27 @@ int Parser::readFile(char* file) {
         return 0;
 }
 
+/**
+ * @brief Parser::csv_read_row
+ * @param line
+ * @param delimiter
+ * @return
+ * Reads a row of the CSV file and returns a vector of strings
+ */
+
 std::vector<std::string> Parser::csv_read_row(std::string &line, char delimiter)
 {
     std::stringstream ss(line);
     return csv_read_row(ss, delimiter);
 }
+
+/**
+ * @brief Parser::csv_read_row
+ * @param in
+ * @param delimiter
+ * @return
+ * Reads a row of the CSV file and returns a vector of strings
+ */
 
 std::vector<std::string> Parser::csv_read_row(std::istream &in, char delimiter)
 {
@@ -145,6 +179,13 @@ int Parser::TotalQuestions() {
     return idLocations.size();
 }
 
+/**
+ * @brief Parser::findFile
+ * @param ID
+ * @return
+ * Finds and returns file location based on index in idLocations vector
+ */
+
 
 int Parser::findFile(int ID) {
     int pos = 0;
@@ -157,6 +198,13 @@ int Parser::findFile(int ID) {
     }
     return pos;
 }
+
+/**
+ * @brief Parser::parseBodyWords
+ * @param input
+ * @param idNumber
+ * Parses body column, removes unwanted characters, changes to lower case and saves data to a vector
+ */
 
 void Parser::parseBodyWords(std::string &input, int &idNumber) {
     std::istringstream iss(input);
@@ -176,9 +224,14 @@ void Parser::parseBodyWords(std::string &input, int &idNumber) {
         word.erase(std::remove(word.begin(), word.end(), '='), word.end());
         word.erase(std::remove(word.begin(), word.end(), '"'), word.end());
         transform(word.begin(), word.end(), word.begin(), ::tolower);
-        vStrings->readNewWord(idNumber, word);
+        vStrings->readNewWord(idNumber, word); // adds word with current ID to vector
     }
 }
+
+/**
+ * @brief Parser::clear
+ * Clears all Entries
+ */
 
 void Parser::clear() {
     vStrings->index->clear();

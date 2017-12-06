@@ -11,17 +11,30 @@
 using namespace std;
 vector <string> dropWords;
 
+/**
+ * @brief Indexer::Indexer
+ * Constructor for indexer
+ */
+
 Indexer::Indexer() {
     index = new HashTable<word>();
     qEntered = false;
     getStopWords();
 }
 
+/**
+ * @brief Indexer::~Indexer
+ */
+
 Indexer::~Indexer() {
     index->clear();
     delete index;
 }
 
+/**
+ * @brief Indexer::getStopWords
+ * Reads in the stop words
+ */
 
 void Indexer::getStopWords() {
     ifstream no("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/Sprint5/data/stop.txt");
@@ -32,10 +45,24 @@ void Indexer::getStopWords() {
     no.close();
 }
 
+/**
+ * @brief Indexer::Indexer
+ * @param i
+ * Constructor for overloaded hashtable
+ */
+
 Indexer::Indexer(HashTable<word>* i) { //overloaded constructor, connects indexer to index MAYBE CHANCE TO POINTER
     index = i;
 }
 
+/**
+ * @brief Indexer::readNewWord
+ * @param inputID
+ * @param inputWord
+ * Removes stop words
+ * Stems the word
+ * Adds the word to index Hashtable
+ */
 
 
 void Indexer::readNewWord(int& inputID, string& inputWord) {
@@ -57,6 +84,13 @@ void Indexer::readNewWord(int& inputID, string& inputWord) {
     return;
 }
 
+/**
+ * @brief Indexer::readNewTag
+ * @param inputID
+ * @param inputTag
+ * Adds tag files to index hashtable
+ */
+
 
 void Indexer::readNewTag(int& inputID, string& inputTag) {
 
@@ -72,27 +106,16 @@ void Indexer::readNewTag(int& inputID, string& inputTag) {
     return;
 }
 
-
-/*
-void Indexer::cleanWordList(vector <string> &wl, vector <int> &wLoc){
-    for(int x{}; x < dropWords.size(); x++) {
-        for(int i{wl.size() - 1}; i >= 0; i--) { //goes from end to begining
-            if (dropWords[x] == wl[i]) { //NEED A TOLOWER HERE
-                wl.erase(wl.begin() + i); //deletes word
-                wLoc.erase(wLoc.begin() + i); //deletes word location of deleted word
-            }
-        }
-    }
-    for(int i{}; i < wl.size(); i++) {
-        Porter2Stemmer::stem(wl[i]); //calls stem function from inside porter2stemmer and stems words
-    }
-}
-*/
-
-
 int Indexer::getTotalWords() {
     return index->totalEntries();
 }
+
+/**
+ * @brief Indexer::searchIndex
+ * @param t
+ * @return
+ * Returns the word object for the string searched from the hash table
+ */
 
 word Indexer::searchIndex(string t){ //vector of ints which are document numbers, string is tag
     if(index->find(t) == nullptr) {

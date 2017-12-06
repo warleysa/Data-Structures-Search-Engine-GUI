@@ -12,9 +12,21 @@ class result  {
 public:
     vector<int> idListResult;
     vector<int> freqListResult;
+
+    /**
+     * @brief result
+     */
+
     result() {
 
     }
+
+    /**
+     * @brief result
+     * @param temp1
+     * @param p
+     * Merges/sorts/updates frequencies based on query bool values
+     */
 
 
     result(vector<qWord>& temp1, Parser*& p) {
@@ -38,6 +50,13 @@ public:
         }
     }
 
+    /**
+     * @brief mergeAnd
+     * @param idMerge
+     * @param freqMerge
+     * Merges ID and Frequency with AND based on query bool values
+     */
+
     void mergeAnd(vector<int>& idMerge, vector<int>& freqMerge) {
 
         vector<int> tempId;
@@ -55,6 +74,13 @@ public:
         freqListResult = tempFreq;
         qSort();
     }
+
+    /**
+     * @brief mergeOr
+     * @param idMerge
+     * @param freqMerge
+     * Merges ID and Frequency with OR based on query bool values
+     */
 
     void mergeOr(vector<int>& idMerge, vector<int>& freqMerge) {
 
@@ -82,6 +108,14 @@ public:
             }
         }
     }
+
+    /**
+     * @brief mergeNot
+     * @param idMerge
+     * @param freqMerge
+     * Merges ID and Frequency with NOT based on query bool values
+     */
+
     void mergeNot(vector<int>& idMerge, vector<int>& freqMerge) {
 
         vector<int> tempId;
@@ -107,6 +141,10 @@ public:
         qSort();
     }
 
+    /**
+     * @brief print
+     * Prints all word values that are sorted by frequency
+     */
 
 
     void print() {
@@ -119,6 +157,15 @@ public:
             cout << " : " << freqListResult[i] << endl;
         }
     }
+
+    /**
+     * @brief qSort
+     * @param left
+     * @param right
+     * Sorting functions for relevancy rankings
+     * Uses Sprint 3 algorithm for sorting vectors (In DSVector)
+     */
+
     void qSort(int left, int right){
            int i = left;
            int j = right;

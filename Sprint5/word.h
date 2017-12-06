@@ -19,6 +19,11 @@ public:
 
 public:
     string wordValue = " ";
+
+    /**
+     * @brief word
+     */
+
     word() {
 
     }
@@ -27,11 +32,24 @@ public:
 
     }
 
+    /**
+     * @brief word
+     * @param input
+     * @param inputID
+     * @param freq
+     */
+
     word(string& input, int inputID, int freq) {
         wordValue = input;
         idList.push_back(inputID);
         freqList.push_back(freq);
     }
+
+    /**
+     * @brief updateFreq
+     * @param inputID
+     * Updates word frequency with +1(for word) if it is contained in the hash table
+     */
 
 
     void updateFreq(int& inputID) {
@@ -47,6 +65,12 @@ public:
         return;
     }
 
+    /**
+     * @brief updateTagFreq
+     * @param inputID
+     * Updates word frequency with +5(for tag) if it is contained in the hash table
+     */
+
     void updateTagFreq(int& inputID) {
         int tempValue = 5;
         for(int i = 0; i < idList.size(); i++) {
@@ -60,6 +84,11 @@ public:
         return;
     }
 
+    /**
+     * @brief print
+     * Prints all word values that are sorted by freuency
+     */
+
 
     void print() {
         cout << "ID LIST::::" << endl;
@@ -72,6 +101,12 @@ public:
         }
     }
 
+    /**
+     * @brief swap
+     * @param a
+     * @param b
+     */
+
 
     void swap(int* a, int* b){
         int temp = *a;
@@ -79,10 +114,13 @@ public:
         *b = temp;
     }
 
-/*
- * Sorting functions for relevancy rankings
- * Uses Sprint 3 algorithm for sorting vectors (In DSVector)
- */
+    /**
+     * @brief qSort
+     * @param left
+     * @param right
+     * Sorting functions for relevancy rankings
+     * Uses Sprint 3 algorithm for sorting vectors (In DSVector)
+     */
 
     void qSort(int left, int right){
            int i = left;
@@ -116,6 +154,9 @@ public:
                qSort(i, right);
            }
        }
+    /**
+     * @brief qSort
+     */
 
     void qSort(){
 

@@ -1,14 +1,30 @@
 #include "query.h"
 #include <porter2_stemmer.h>
 
+/**
+ * @brief query::query
+ */
+
 query::query()
 {
 
 }
 
+/**
+ * @brief query::getSearch
+ * @return
+ * Returns vector of qwords that is set with query settings
+ */
+
 std::vector<qWord> query::getSearch(){
     return search;
 }
+
+/**
+ * @brief query::processSearch
+ * @param s
+ * Processes user query and loads the values/settings into vector of qWords
+ */
 
 void query::processSearch(std::string& s){
    for(int i = 0; i < s.length(); i++){

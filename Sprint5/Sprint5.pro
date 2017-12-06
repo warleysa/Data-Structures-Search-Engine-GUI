@@ -30,7 +30,6 @@ HEADERS += \
     Indexer.h \
     word.h \
     HashTable.h \
-    userinterface_nonGUI.h \
     tag.h \
     qword.h \
     query.h \
