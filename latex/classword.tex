@@ -1,0 +1,148 @@
+\section{word Class Reference}
+\label{classword}\index{word@{word}}
+
+
+Collaboration diagram for word\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=212pt]{classword__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf word} ()\label{classword_a2a7bb6f6fcfd45d7f5137b53a97e23b8}
+
+\begin{DoxyCompactList}\small\item\em word \end{DoxyCompactList}\item 
+{\bf word} (string \&input, int input\+ID, int freq)
+\begin{DoxyCompactList}\small\item\em word \end{DoxyCompactList}\item 
+void {\bf update\+Freq} (int \&input\+ID)
+\begin{DoxyCompactList}\small\item\em update\+Freq \end{DoxyCompactList}\item 
+void {\bf update\+Tag\+Freq} (int \&input\+ID)
+\begin{DoxyCompactList}\small\item\em update\+Tag\+Freq \end{DoxyCompactList}\item 
+void {\bf print} ()\label{classword_a3a5f547cab6e1814ef96b39003a0c472}
+
+\begin{DoxyCompactList}\small\item\em print Prints all word values that are sorted by freuency \end{DoxyCompactList}\item 
+void {\bf swap} (int $\ast$a, int $\ast$b)
+\begin{DoxyCompactList}\small\item\em swap \end{DoxyCompactList}\item 
+void {\bf q\+Sort} (int left, int right)
+\begin{DoxyCompactList}\small\item\em q\+Sort \end{DoxyCompactList}\item 
+void {\bf q\+Sort} ()\label{classword_a4f51a299447e14954a66f2ae1492c0a7}
+
+\begin{DoxyCompactList}\small\item\em q\+Sort \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+vector$<$ int $>$ {\bfseries id\+List}\label{classword_a1547d07b9aab776435e23bc7e9e0581e}
+
+\item 
+vector$<$ int $>$ {\bfseries freq\+List}\label{classword_aef3844fe2f6bfb468a65322d6d6ef9e6}
+
+\item 
+string {\bfseries word\+Value} = \char`\"{} \char`\"{}\label{classword_a23fcaa1a4e81f137e0b5c46cead8a311}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{word@{word}!word@{word}}
+\index{word@{word}!word@{word}}
+\subsubsection[{word(string \&input, int input\+I\+D, int freq)}]{\setlength{\rightskip}{0pt plus 5cm}word\+::word (
+\begin{DoxyParamCaption}
+\item[{string \&}]{input, }
+\item[{int}]{input\+ID, }
+\item[{int}]{freq}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classword_a898c3e08927dc1eb947ab311f0ad153b}
+
+
+word 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & \\
+\hline
+{\em input\+ID} & \\
+\hline
+{\em freq} & \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{word@{word}!q\+Sort@{q\+Sort}}
+\index{q\+Sort@{q\+Sort}!word@{word}}
+\subsubsection[{q\+Sort(int left, int right)}]{\setlength{\rightskip}{0pt plus 5cm}void word\+::q\+Sort (
+\begin{DoxyParamCaption}
+\item[{int}]{left, }
+\item[{int}]{right}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classword_abbc538aef21fabaa9d893810c0fd6057}
+
+
+q\+Sort 
+
+
+\begin{DoxyParams}{Parameters}
+{\em left} & \\
+\hline
+{\em right} & Sorting functions for relevancy rankings Uses Sprint 3 algorithm for sorting vectors (In D\+S\+Vector) \\
+\hline
+\end{DoxyParams}
+\index{word@{word}!swap@{swap}}
+\index{swap@{swap}!word@{word}}
+\subsubsection[{swap(int $\ast$a, int $\ast$b)}]{\setlength{\rightskip}{0pt plus 5cm}void word\+::swap (
+\begin{DoxyParamCaption}
+\item[{int $\ast$}]{a, }
+\item[{int $\ast$}]{b}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classword_ad8f1a62dce2c180926bc9973e9b0f0dd}
+
+
+swap 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & \\
+\hline
+{\em b} & \\
+\hline
+\end{DoxyParams}
+\index{word@{word}!update\+Freq@{update\+Freq}}
+\index{update\+Freq@{update\+Freq}!word@{word}}
+\subsubsection[{update\+Freq(int \&input\+I\+D)}]{\setlength{\rightskip}{0pt plus 5cm}void word\+::update\+Freq (
+\begin{DoxyParamCaption}
+\item[{int \&}]{input\+ID}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classword_a61cf10a20f6e69cbfe753089f11a9c2b}
+
+
+update\+Freq 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input\+ID} & Updates word frequency with +1(for word) if it is contained in the hash table \\
+\hline
+\end{DoxyParams}
+\index{word@{word}!update\+Tag\+Freq@{update\+Tag\+Freq}}
+\index{update\+Tag\+Freq@{update\+Tag\+Freq}!word@{word}}
+\subsubsection[{update\+Tag\+Freq(int \&input\+I\+D)}]{\setlength{\rightskip}{0pt plus 5cm}void word\+::update\+Tag\+Freq (
+\begin{DoxyParamCaption}
+\item[{int \&}]{input\+ID}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classword_aefdd440b53f841b292bffeb4189c0ef6}
+
+
+update\+Tag\+Freq 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input\+ID} & Updates word frequency with +5(for tag) if it is contained in the hash table \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+word.\+h\end{DoxyCompactItemize}

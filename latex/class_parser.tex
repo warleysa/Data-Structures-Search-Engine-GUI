@@ -1,0 +1,145 @@
+\section{Parser Class Reference}
+\label{class_parser}\index{Parser@{Parser}}
+
+
+Collaboration diagram for Parser\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=183pt]{class_parser__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Parser} ()\label{class_parser_a12234f6cd36b61af4b50c94a179422c1}
+
+\begin{DoxyCompactList}\small\item\em \doxyref{Parser\+::\+Parser}{p.}{class_parser_a12234f6cd36b61af4b50c94a179422c1} Fills rows of entire questions with a filler/empty object. \end{DoxyCompactList}\item 
+{\bfseries Parser} (char $\ast$, char $\ast$)\label{class_parser_a0b74f3568fde911fab6b7826b4cdaa30}
+
+\item 
+int {\bf read\+File} (char $\ast$)
+\begin{DoxyCompactList}\small\item\em \doxyref{Parser\+::read\+File}{p.}{class_parser_a9a4c8a2d713a3f555b0829aa076bfce3}. \end{DoxyCompactList}\item 
+void {\bf read\+Tag\+File} (char $\ast$)
+\begin{DoxyCompactList}\small\item\em \doxyref{Parser\+::read\+Tag\+File}{p.}{class_parser_a60187c7fdef5329fd84774204468d3ad}. \end{DoxyCompactList}\item 
+int {\bfseries read\+Id} (int)\label{class_parser_a446505f72b33249f61adef9c642e769a}
+
+\item 
+int {\bfseries read\+Score} (int)\label{class_parser_a222dd63736adc8b64f6d5e8cd443a10d}
+
+\item 
+int {\bfseries read\+Tag\+Id} (int)\label{class_parser_ad279e4d18624c84df8a540f64ced8cb6}
+
+\item 
+string {\bfseries read\+Title} (int)\label{class_parser_adb2a91073f53b7dcc332ee4082629933}
+
+\item 
+string {\bfseries read\+Body} (int)\label{class_parser_abf57cc6c1dc7d7ecdf45a8c79eb65771}
+
+\item 
+string {\bfseries read\+Code} (int)\label{class_parser_a10713d4bb2867dd82a5f47e8ac823336}
+
+\item 
+int {\bfseries Total\+Questions} ()\label{class_parser_a8daf26c7d4bae0eb778f3426b94e3d86}
+
+\item 
+int {\bf find\+File} (int)
+\begin{DoxyCompactList}\small\item\em \doxyref{Parser\+::find\+File}{p.}{class_parser_a103eea4c90c36e5c0fd9c55232565ded}. \end{DoxyCompactList}\item 
+void {\bf clear} ()\label{class_parser_abb54cb3c787646ed220d8faee2af5e15}
+
+\begin{DoxyCompactList}\small\item\em \doxyref{Parser\+::clear}{p.}{class_parser_abb54cb3c787646ed220d8faee2af5e15} Clears all Entries. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int {\bfseries doc\+Load\+Pos} = 0\label{class_parser_a16150bbf6d2c5f2d30ec1362bb809853}
+
+\item 
+{\bf Indexer} $\ast$ {\bfseries v\+Strings} = new {\bf Indexer}()\label{class_parser_abed69bdba05da4901492c726439f7bd1}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\index{Parser@{Parser}!find\+File@{find\+File}}
+\index{find\+File@{find\+File}!Parser@{Parser}}
+\subsubsection[{find\+File(int)}]{\setlength{\rightskip}{0pt plus 5cm}int Parser\+::find\+File (
+\begin{DoxyParamCaption}
+\item[{int}]{ID}
+\end{DoxyParamCaption}
+)}\label{class_parser_a103eea4c90c36e5c0fd9c55232565ded}
+
+
+\doxyref{Parser\+::find\+File}{p.}{class_parser_a103eea4c90c36e5c0fd9c55232565ded}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ID} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Finds and returns file location based on index in id\+Locations vector 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=316pt]{class_parser_a103eea4c90c36e5c0fd9c55232565ded_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{Parser@{Parser}!read\+File@{read\+File}}
+\index{read\+File@{read\+File}!Parser@{Parser}}
+\subsubsection[{read\+File(char $\ast$)}]{\setlength{\rightskip}{0pt plus 5cm}void Parser\+::read\+File (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{file}
+\end{DoxyParamCaption}
+)}\label{class_parser_a9a4c8a2d713a3f555b0829aa076bfce3}
+
+
+\doxyref{Parser\+::read\+File}{p.}{class_parser_a9a4c8a2d713a3f555b0829aa076bfce3}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Accepts a file, reads it row by row and stores the data into \doxyref{Hash\+Table}{p.}{class_hash_table} 
+\end{DoxyReturn}
+\index{Parser@{Parser}!read\+Tag\+File@{read\+Tag\+File}}
+\index{read\+Tag\+File@{read\+Tag\+File}!Parser@{Parser}}
+\subsubsection[{read\+Tag\+File(char $\ast$)}]{\setlength{\rightskip}{0pt plus 5cm}void Parser\+::read\+Tag\+File (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{file}
+\end{DoxyParamCaption}
+)}\label{class_parser_a60187c7fdef5329fd84774204468d3ad}
+
+
+\doxyref{Parser\+::read\+Tag\+File}{p.}{class_parser_a60187c7fdef5329fd84774204468d3ad}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file} & Reads in a tag file with path that is passed in \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=328pt]{class_parser_a60187c7fdef5329fd84774204468d3ad_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+parser.\+h\item 
+parser.\+cpp\item 
+parser\+\_\+noncompiling.\+cpp\end{DoxyCompactItemize}

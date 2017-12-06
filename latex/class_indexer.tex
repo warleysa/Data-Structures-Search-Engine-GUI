@@ -1,0 +1,158 @@
+\section{Indexer Class Reference}
+\label{class_indexer}\index{Indexer@{Indexer}}
+
+
+Collaboration diagram for Indexer\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=183pt]{class_indexer__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf get\+Stop\+Words} ()\label{class_indexer_a8e0b420e8e47cef08c1b23869bb20add}
+
+\begin{DoxyCompactList}\small\item\em \doxyref{Indexer\+::get\+Stop\+Words}{p.}{class_indexer_a8e0b420e8e47cef08c1b23869bb20add} Reads in the stop words. \end{DoxyCompactList}\item 
+int {\bfseries get\+Total\+Words} ()\label{class_indexer_a41ec0dd75ccd821b51964ca4ec64eac8}
+
+\item 
+{\bf Indexer} ()\label{class_indexer_ac4c8c21c68d62185ceddbad8781e3b67}
+
+\begin{DoxyCompactList}\small\item\em \doxyref{Indexer\+::\+Indexer}{p.}{class_indexer_ac4c8c21c68d62185ceddbad8781e3b67} Constructor for indexer. \end{DoxyCompactList}\item 
+{\bf $\sim$\+Indexer} ()\label{class_indexer_aaf5971639a7a2e3d9af4d8da62deb6f4}
+
+\begin{DoxyCompactList}\small\item\em \doxyref{Indexer\+::$\sim$\+Indexer}{p.}{class_indexer_aaf5971639a7a2e3d9af4d8da62deb6f4}. \end{DoxyCompactList}\item 
+{\bf Indexer} ({\bf Hash\+Table}$<$ {\bf word} $>$ $\ast$i)
+\begin{DoxyCompactList}\small\item\em \doxyref{Indexer\+::\+Indexer}{p.}{class_indexer_ac4c8c21c68d62185ceddbad8781e3b67}. \end{DoxyCompactList}\item 
+void {\bf read\+New\+Tag} (int \&input\+ID, string \&input\+Word)
+\begin{DoxyCompactList}\small\item\em \doxyref{Indexer\+::read\+New\+Tag}{p.}{class_indexer_a3bfdc5a3b79b239b020995e7741ae0e4}. \end{DoxyCompactList}\item 
+{\bf word} {\bf search\+Index} (string)
+\begin{DoxyCompactList}\small\item\em \doxyref{Indexer\+::search\+Index}{p.}{class_indexer_ac08c04ca8fd501ded3d682581aca82a9}. \end{DoxyCompactList}\item 
+void {\bf read\+New\+Word} (int \&input\+ID, string \&input\+Word)
+\begin{DoxyCompactList}\small\item\em \doxyref{Indexer\+::read\+New\+Word}{p.}{class_indexer_a7217bd3ebc936bd672d3b741202d787c}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Hash\+Table}$<$ {\bf word} $>$ $\ast$ {\bfseries index}\label{class_indexer_a0937c617b53483d6f234a49a63783cda}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Indexer@{Indexer}!Indexer@{Indexer}}
+\index{Indexer@{Indexer}!Indexer@{Indexer}}
+\subsubsection[{Indexer(\+Hash\+Table$<$ word $>$ $\ast$i)}]{\setlength{\rightskip}{0pt plus 5cm}Indexer\+::\+Indexer (
+\begin{DoxyParamCaption}
+\item[{{\bf Hash\+Table}$<$ {\bf word} $>$ $\ast$}]{i}
+\end{DoxyParamCaption}
+)}\label{class_indexer_a547f91155632bf2da7b5505e19e3e553}
+
+
+\doxyref{Indexer\+::\+Indexer}{p.}{class_indexer_ac4c8c21c68d62185ceddbad8781e3b67}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & Constructor for overloaded hashtable \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{Indexer@{Indexer}!read\+New\+Tag@{read\+New\+Tag}}
+\index{read\+New\+Tag@{read\+New\+Tag}!Indexer@{Indexer}}
+\subsubsection[{read\+New\+Tag(int \&input\+I\+D, string \&input\+Word)}]{\setlength{\rightskip}{0pt plus 5cm}void Indexer\+::read\+New\+Tag (
+\begin{DoxyParamCaption}
+\item[{int \&}]{input\+ID, }
+\item[{string \&}]{input\+Tag}
+\end{DoxyParamCaption}
+)}\label{class_indexer_a3bfdc5a3b79b239b020995e7741ae0e4}
+
+
+\doxyref{Indexer\+::read\+New\+Tag}{p.}{class_indexer_a3bfdc5a3b79b239b020995e7741ae0e4}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input\+ID} & \\
+\hline
+{\em input\+Tag} & Adds tag files to index hashtable \\
+\hline
+\end{DoxyParams}
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=328pt]{class_indexer_a3bfdc5a3b79b239b020995e7741ae0e4_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{Indexer@{Indexer}!read\+New\+Word@{read\+New\+Word}}
+\index{read\+New\+Word@{read\+New\+Word}!Indexer@{Indexer}}
+\subsubsection[{read\+New\+Word(int \&input\+I\+D, string \&input\+Word)}]{\setlength{\rightskip}{0pt plus 5cm}void Indexer\+::read\+New\+Word (
+\begin{DoxyParamCaption}
+\item[{int \&}]{input\+ID, }
+\item[{string \&}]{input\+Word}
+\end{DoxyParamCaption}
+)}\label{class_indexer_a7217bd3ebc936bd672d3b741202d787c}
+
+
+\doxyref{Indexer\+::read\+New\+Word}{p.}{class_indexer_a7217bd3ebc936bd672d3b741202d787c}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input\+ID} & \\
+\hline
+{\em input\+Word} & Removes stop words Stems the word Adds the word to index Hashtable \\
+\hline
+\end{DoxyParams}
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=316pt]{class_indexer_a7217bd3ebc936bd672d3b741202d787c_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{Indexer@{Indexer}!search\+Index@{search\+Index}}
+\index{search\+Index@{search\+Index}!Indexer@{Indexer}}
+\subsubsection[{search\+Index(string)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf word} Indexer\+::search\+Index (
+\begin{DoxyParamCaption}
+\item[{string}]{t}
+\end{DoxyParamCaption}
+)}\label{class_indexer_ac08c04ca8fd501ded3d682581aca82a9}
+
+
+\doxyref{Indexer\+::search\+Index}{p.}{class_indexer_ac08c04ca8fd501ded3d682581aca82a9}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns the word object for the string searched from the hash table 
+\end{DoxyReturn}
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=295pt]{class_indexer_ac08c04ca8fd501ded3d682581aca82a9_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Indexer.\+h\item 
+Indexer.\+cpp\end{DoxyCompactItemize}

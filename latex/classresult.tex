@@ -1,0 +1,159 @@
+\section{result Class Reference}
+\label{classresult}\index{result@{result}}
+
+
+Collaboration diagram for result\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=177pt]{classresult__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf result} ()\label{classresult_ad82f937012d03ea93364031666897225}
+
+\begin{DoxyCompactList}\small\item\em result \end{DoxyCompactList}\item 
+{\bf result} (vector$<$ {\bf q\+Word} $>$ \&temp1, {\bf Parser} $\ast$\&p)
+\begin{DoxyCompactList}\small\item\em result \end{DoxyCompactList}\item 
+void {\bf merge\+And} (vector$<$ int $>$ \&id\+Merge, vector$<$ int $>$ \&freq\+Merge)
+\begin{DoxyCompactList}\small\item\em merge\+And \end{DoxyCompactList}\item 
+void {\bf merge\+Or} (vector$<$ int $>$ \&id\+Merge, vector$<$ int $>$ \&freq\+Merge)
+\begin{DoxyCompactList}\small\item\em merge\+Or \end{DoxyCompactList}\item 
+void {\bf merge\+Not} (vector$<$ int $>$ \&id\+Merge, vector$<$ int $>$ \&freq\+Merge)
+\begin{DoxyCompactList}\small\item\em merge\+Not \end{DoxyCompactList}\item 
+void {\bf print} ()\label{classresult_aa3017b87fb7e7a65365cc9575731047b}
+
+\begin{DoxyCompactList}\small\item\em print Prints all word values that are sorted by frequency \end{DoxyCompactList}\item 
+void {\bf q\+Sort} (int left, int right)
+\begin{DoxyCompactList}\small\item\em q\+Sort \end{DoxyCompactList}\item 
+void {\bfseries q\+Sort} ()\label{classresult_a68389b354f9d9020bfa51267b8cd9233}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+vector$<$ int $>$ {\bfseries id\+List\+Result}\label{classresult_a133d56a418a980dabb34659f27d4f0ad}
+
+\item 
+vector$<$ int $>$ {\bfseries freq\+List\+Result}\label{classresult_a2a95dd4c44436b666244746e1527e8bf}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{result@{result}!result@{result}}
+\index{result@{result}!result@{result}}
+\subsubsection[{result(vector$<$ q\+Word $>$ \&temp1, Parser $\ast$\&p)}]{\setlength{\rightskip}{0pt plus 5cm}result\+::result (
+\begin{DoxyParamCaption}
+\item[{vector$<$ {\bf q\+Word} $>$ \&}]{temp1, }
+\item[{{\bf Parser} $\ast$\&}]{p}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classresult_ad9ce0309cd3634bfecabd4c121cc7036}
+
+
+result 
+
+
+\begin{DoxyParams}{Parameters}
+{\em temp1} & \\
+\hline
+{\em p} & Merges/sorts/updates frequencies based on query bool values \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=295pt]{classresult_ad9ce0309cd3634bfecabd4c121cc7036_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Function Documentation}
+\index{result@{result}!merge\+And@{merge\+And}}
+\index{merge\+And@{merge\+And}!result@{result}}
+\subsubsection[{merge\+And(vector$<$ int $>$ \&id\+Merge, vector$<$ int $>$ \&freq\+Merge)}]{\setlength{\rightskip}{0pt plus 5cm}void result\+::merge\+And (
+\begin{DoxyParamCaption}
+\item[{vector$<$ int $>$ \&}]{id\+Merge, }
+\item[{vector$<$ int $>$ \&}]{freq\+Merge}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classresult_aa3698ce540402c3c7e018359a83c4360}
+
+
+merge\+And 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id\+Merge} & \\
+\hline
+{\em freq\+Merge} & Merges ID and Frequency with A\+ND based on query bool values \\
+\hline
+\end{DoxyParams}
+\index{result@{result}!merge\+Not@{merge\+Not}}
+\index{merge\+Not@{merge\+Not}!result@{result}}
+\subsubsection[{merge\+Not(vector$<$ int $>$ \&id\+Merge, vector$<$ int $>$ \&freq\+Merge)}]{\setlength{\rightskip}{0pt plus 5cm}void result\+::merge\+Not (
+\begin{DoxyParamCaption}
+\item[{vector$<$ int $>$ \&}]{id\+Merge, }
+\item[{vector$<$ int $>$ \&}]{freq\+Merge}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classresult_ae8e1c308f6cc22759fbaced1df59b571}
+
+
+merge\+Not 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id\+Merge} & \\
+\hline
+{\em freq\+Merge} & Merges ID and Frequency with N\+OT based on query bool values \\
+\hline
+\end{DoxyParams}
+\index{result@{result}!merge\+Or@{merge\+Or}}
+\index{merge\+Or@{merge\+Or}!result@{result}}
+\subsubsection[{merge\+Or(vector$<$ int $>$ \&id\+Merge, vector$<$ int $>$ \&freq\+Merge)}]{\setlength{\rightskip}{0pt plus 5cm}void result\+::merge\+Or (
+\begin{DoxyParamCaption}
+\item[{vector$<$ int $>$ \&}]{id\+Merge, }
+\item[{vector$<$ int $>$ \&}]{freq\+Merge}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classresult_a5176b5c535444a8877863953c265ea29}
+
+
+merge\+Or 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id\+Merge} & \\
+\hline
+{\em freq\+Merge} & Merges ID and Frequency with OR based on query bool values \\
+\hline
+\end{DoxyParams}
+\index{result@{result}!q\+Sort@{q\+Sort}}
+\index{q\+Sort@{q\+Sort}!result@{result}}
+\subsubsection[{q\+Sort(int left, int right)}]{\setlength{\rightskip}{0pt plus 5cm}void result\+::q\+Sort (
+\begin{DoxyParamCaption}
+\item[{int}]{left, }
+\item[{int}]{right}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classresult_accfe13319340168b32ac5f41ab2d7a9f}
+
+
+q\+Sort 
+
+
+\begin{DoxyParams}{Parameters}
+{\em left} & \\
+\hline
+{\em right} & Sorting functions for relevancy rankings Uses Sprint 3 algorithm for sorting vectors (In D\+S\+Vector) \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+result.\+h\end{DoxyCompactItemize}
