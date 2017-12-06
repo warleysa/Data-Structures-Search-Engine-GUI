@@ -38,4 +38,5 @@ HEADERS += \
     parser.h \
     page.h \
     mainwindow.h \
-    IndexInterface.h
+    IndexInterface.h \
+    result.h

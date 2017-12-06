@@ -4,6 +4,7 @@
 #include <vector>
 #include <iostream>
 #include <algorithm>
+#include <query.h>
 
 using namespace std;
 
@@ -15,8 +16,6 @@ class word {
 public:
     vector<int> idList;
     vector<int> freqList;
-    int inC = 0;
-    int inT = 0;
 
 public:
     string wordValue = " ";
@@ -131,6 +130,7 @@ public:
         std::reverse(freqList.begin(), freqList.end());
         std::reverse(idList.begin(), idList.end());
     }
+
 };
 
 #endif // WORD_H

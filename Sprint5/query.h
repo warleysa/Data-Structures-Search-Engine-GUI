@@ -11,13 +11,13 @@
 class query
 {
 private:
-    std::vector<qWord> search;
 
 
 public:
     query();
+    std::vector<qWord> search;
     std::vector<qWord> getSearch();
-    void processSearch(std::string);
+    void processSearch(std::string&);
 };
 
 #endif // QUERY_H

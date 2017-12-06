@@ -30,53 +30,12 @@ void Indexer::getStopWords() {
         dropWords.push_back(temp);
     }
     no.close();
-    for(int i = 0; i < dropWords.size(); i++) {
-        cout << "Word: " << dropWords[i] << endl;
-    }
 }
 
 Indexer::Indexer(HashTable<word>* i) { //overloaded constructor, connects indexer to index MAYBE CHANCE TO POINTER
     index = i;
 }
 
-/*
-
-vector <Results> Indexer::findWord(string word) {
-    cout << "got to find" << endl;
-    Porter2Stemmer::stem(word); //stem search word
-    Entry* e = index -> find(word); //finds word
-    vector <Results> results;
-    int loc;
-    for (int i{}; i < e->getSize(); i++) {
-        loc = -1; //reset size (haven't found it in results)
-        for (int z{}; z < results.size(); z++) {
-            if (e->getDocNum(i) == results[z].getDocNum()) {
-                loc = z; //set to particular decision because found
-                break;
-            }
-        }
-        if (loc == -1) {
-            results.push_back(Results(e->getDocNum(i), 1)); //1 because first instance
-        }
-        else {
-            results[loc].setScore(results[loc].getScore() + 1); //incrememnting how many times seen
-        }
-        //look at doc num in position i
-        //if there, increment score by one (found another instance)
-        //if not in vector, add as new entry
-    }
-    sort(results.begin(), results.end(), greater<Results>()); //sort array in descending order TERM FREQUENCY METRIC
-    return results;
-    //score words on how many times in document
-    //more
->>>>>>> 5b38a75... Fixed hash table for templating and making the array/vector
-}
-
-Indexer::Indexer(HashTable<word>* i) { //overloaded constructor, connects indexer to index MAYBE CHANCE TO POINTER
-    index = i;
-    qEntered = false;
-}
-*/
 
 
 void Indexer::readNewWord(int& inputID, string& inputWord) {

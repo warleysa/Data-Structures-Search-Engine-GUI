@@ -1,4 +1,5 @@
 #include "query.h"
+#include <porter2_stemmer.h>
 
 query::query()
 {
@@ -9,7 +10,7 @@ std::vector<qWord> query::getSearch(){
     return search;
 }
 
-void query::processSearch(std::string s){
+void query::processSearch(std::string& s){
    for(int i = 0; i < s.length(); i++){
        s[i] = tolower(s[i]);
    }
@@ -31,7 +32,7 @@ void query::processSearch(std::string s){
            a = false;
            o = false;
            n = true;
-       } else if (!n){
+       } else {
            qWord q{temp, a, o, n};
            search.push_back(q);
        }

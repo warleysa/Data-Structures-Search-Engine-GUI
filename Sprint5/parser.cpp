@@ -150,14 +150,11 @@ int Parser::findFile(int ID) {
     int pos = 0;
 
     for(int i = 0; i <= idLocations.size(); i++) {
-        cout << idLocations[i] << endl;
         if(ID == idLocations[i]) {
             pos = i;
             break;
         }
     }
-    cout << "SIZE: " << idLocations.size() << "Index: " << pos << endl;
-    cout << "PAGE SIZE: " << rows.size() << endl;
     return pos;
 }
 

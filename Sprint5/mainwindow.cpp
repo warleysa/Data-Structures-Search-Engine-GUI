@@ -10,6 +10,8 @@
 #include <string>
 #include <chrono>
 #include <word.h>
+#include <query.h>
+#include <result.h>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -66,7 +68,7 @@ void MainWindow::start() {
 
     p->readFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/Sprint5/data/Q09.csv");
     p->readTagFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/Sprint5/data/T09.csv");
-    /*
+
     p->readFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/Sprint5/data/Q10.csv");
     p->readTagFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/Sprint5/data/T10.csv");
     p->readFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/Sprint5/data/Q11.csv");
@@ -83,7 +85,6 @@ void MainWindow::start() {
 
     p->readFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/Sprint5/data/Q15.csv");
     p->readTagFile("/home/coder/Final-Project/CSE2341-17F-warleysa-mwoolz-rezonate11/Sprint5/data/T15.csv");
-    */
     int stop_s=clock();
     QString time = QString::number((stop_s-start_s)/double(CLOCKS_PER_SEC));
     on_label_time_linkActivated(time);
@@ -220,52 +221,53 @@ void MainWindow::on_pushButton_5_clicked()
 
 void MainWindow::on_pushButton_4_clicked()
 {
-    QString query = ui->lineEdit->text();
-    string qInput = query.toStdString();
-    word result = p->vStrings->searchIndex(qInput);
-    result.qSort();
+    QString queryWord = ui->lineEdit->text();
+    string qInput = queryWord.toStdString();
+    query search1;
+    search1.processSearch(qInput);
+    result* test = new result(search1.search, p);
+    test->qSort();
 
-    if (result.idList.size() > 0) {
-        i1 = result.idList[0];
-        f1 = result.freqList[0];
+    if (test->idListResult.size() > 0) {
+        i1 = test->idListResult[0];
+        f1 = test->freqListResult[0];
     } else {
         i1 = 0;
         f1 = 0;
     }
-    if (result.idList.size() > 1) {
-        i2 = result.idList[1];
-        f2 = result.freqList[1];
+    if (test->idListResult.size() > 1) {
+        i2 = test->idListResult[1];
+        f2 = test->freqListResult[1];
     } else {
         i2 = 0;
         f2 = 0;
     }
-    if (result.idList.size() > 2) {
-        i3 = result.idList[2];
-        f3 = result.freqList[2];
+    if (test->idListResult.size() > 2) {
+        i3 = test->idListResult[2];
+        f3 = test->freqListResult[2];
     } else {
         i3 = 0;
         f3 = 0;
     }
 
-    if (result.idList.size() > 3) {
-        i4 = result.idList[3];
-        f4 = result.freqList[3];
+    if (test->idListResult.size() > 3) {
+        i4 = test->idListResult[3];
+        f4 = test->freqListResult[3];
     } else {
         i4 = 0;
         f4 = 0;
     }
-    if (result.idList.size() > 4) {
-        i5 = result.idList[4];
-        f5 = result.freqList[4];
+    if (test->idListResult.size() > 4) {
+        i5 = test->idListResult[4];
+        f5 = test->freqListResult[4];
     } else {
         i5 = 0;
         f5 = 0;
     }
 
-    cout << "f1: " << f1  << endl;
     rIndex1 = p->findFile(i1);
     QString text1;
-    text1.append("Frequency: ");
+    text1.append("Relevancy: ");
     text1.append(QString::number(f1));
     text1.append("\n ID #: ");
     text1.append(QString::number(i1));
@@ -279,7 +281,7 @@ void MainWindow::on_pushButton_4_clicked()
 
     rIndex2 = p->findFile(i2);
 
-    text1.append("Frequency: ");
+    text1.append("Relevancy: ");
     text1.append(QString::number(f2));
     text1.append("\n ID #: ");
     text1.append(QString::number(i2));
@@ -293,7 +295,7 @@ void MainWindow::on_pushButton_4_clicked()
 
     rIndex3 = p->findFile(i3);
 
-    text1.append("Frequency: ");
+    text1.append("Relevancy: ");
     text1.append(QString::number(f3));
     text1.append("\n ID #: ");
     text1.append(QString::number(i3));
@@ -307,7 +309,7 @@ void MainWindow::on_pushButton_4_clicked()
 
     rIndex4 = p->findFile(i4);
 
-    text1.append("Frequency: ");
+    text1.append("Relevancy: ");
     text1.append(QString::number(f4));
     text1.append("\n ID #: ");
     text1.append(QString::number(i4));
@@ -321,7 +323,7 @@ void MainWindow::on_pushButton_4_clicked()
 
     rIndex5 = p->findFile(i5);
 
-    text1.append("Frequency: ");
+    text1.append("Relevancy: ");
     text1.append(QString::number(f5));
     text1.append("\n ID #: ");
     text1.append(QString::number(i5));
